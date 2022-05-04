@@ -16,6 +16,7 @@ import {
 const Leftbar = () => {
   return (
     <Box bgcolor="whitesmoke" flex={2} p={2} sx={{display:{xs:"none", sm: "block"}}}>
+      <Box position="fixed">
       <List>
         <ListItem disablePadding>
           <ListItemButton href='#'>
@@ -80,6 +81,7 @@ const Leftbar = () => {
           </ListItemButton>
         </ListItem>
       </List>
+      </Box>
     </Box>
   )
 }
