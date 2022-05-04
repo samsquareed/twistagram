@@ -37,6 +37,12 @@ const Leftbar = () => {
           </ListItemButton>
         </ListItem>
       </List>
+      
+      <Box sx={{mt:6}}>
+      <Typography>  page yet to be developed </Typography>
+      <Typography variant='h6'> contact : developers.samsquare.in </Typography>
+      </Box>
+      
       </Box>
     </Box>
   )

@@ -34,13 +34,13 @@ const Navbar = () => {
     <AppBar position="sticky" sx={{bgcolor : "white"}} elevation={1}>
       <StyledToolbar>
         <Typography variant='h6' color="black" sx={{display : { xs:"none", sm : "block" }}} > Twistagram </Typography>
-        <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black" }} style={{fill:"blueviolet"}} />
+        <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />
         <Search> <InputBase placeholder="Search Twists" /> </Search>
         <Icons>
           <Badge badgeContent={9} color="secondary">
-            <ChatBubbleOutlineOutlinedIcon sx={ { color:"black"} } />
+            <ChatBubbleOutlineOutlinedIcon sx={ { color:"black", transform : "Scale(1.07)"} } />
           </Badge>
-          <LogoutOutlinedIcon sx={ { color:"black" }} />
+          <LogoutOutlinedIcon sx={ { color:"black", transform : "Scale(1.1)"}} />
         </Icons>
       </StyledToolbar>
     </AppBar>
