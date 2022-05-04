@@ -4,7 +4,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const Post = ({image}) => {
+const Post = ({image, likes}) => {
   return (
     <div>
     <Card sx={{marginTop : 1, marginBottom : 2}}>
@@ -33,7 +33,8 @@ const Post = ({image}) => {
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon style={{fill:"red"}}/>
+          <Typography variant='h6'> {likes} </Typography>
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
