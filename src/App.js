@@ -1,20 +1,24 @@
-import { Box, Stack } from '@mui/material'
+import { Box } from '@mui/material'
 import React from 'react'
 import Navbar from './components/navbar/Navbar'
-import Feed from './components/feed/Feed'
-import Leftbar from './components/leftbar/Leftbar'
-import Rightbar from './components/rightbar/Rightbar'
+import Home from './pages/home/Home'
+
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Login from './pages/login/Login'
+import Signup from './pages/signup/Signup'
 
 const App = () => {
   return (
-    <Box>
-      <Navbar />
-      <Stack direction="row" spacing={2} justifyContent="space-between">
-        <Leftbar />
-        <Feed />
-        <Rightbar />
-      </Stack>
+    <Router>
+      <Box>
+        <Navbar />
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+        </Routes>
     </Box>
+    </Router>
   )
 }
 
