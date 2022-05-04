@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,6 +12,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Link as RouteLink, useNavigate} from 'react-router-dom'
+import { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {SignIn} from "../../actions/auth"
 
 function Copyright(props) {
   return (
@@ -31,10 +33,19 @@ const Login = () => {
 
   const theme = createTheme();
   const nevigate = useNavigate()
+  const dispatch = useDispatch()
+
+  // const email = useRef("")
+  // const password = useRef("")
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-    nevigate("/")
+    console.log(email, password);
+    const userLogin = {email, password}
+    dispatch(SignIn(userLogin, nevigate))
   }
 
   return (
@@ -63,6 +74,8 @@ const Login = () => {
               id="email"
               label="Email Address"
               name="email"
+              value={email}
+              onChange={(e)=> setEmail(e.target.value)}
               autoComplete="email"
               autoFocus
             />
@@ -71,6 +84,8 @@ const Login = () => {
               required
               fullWidth
               name="password"
+              value={password}
+              onChange={(e)=> setPassword(e.target.value)}
               label="Password"
               type="password"
               id="password"
