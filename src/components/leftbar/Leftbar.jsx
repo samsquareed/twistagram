@@ -3,8 +3,8 @@ import React from 'react'
 
 const Leftbar = () => {
   return (
-    <Box bgcolor="orangered" flex={1} p={2} sx={{display:{xs:"none", sm: "block"}}}>
-      Leftbar
+    <Box bgcolor="whitesmoke" flex={2} p={2} sx={{display:{xs:"none", sm: "block"}}}>
+      leftbar
     </Box>
   )
 }
