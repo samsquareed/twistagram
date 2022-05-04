@@ -22,7 +22,7 @@ const Post = ({image}) => {
       />
       <CardMedia
         component="img"
-        height="194"
+        height="380"
         image={image}
         alt="Paella dish"
       />

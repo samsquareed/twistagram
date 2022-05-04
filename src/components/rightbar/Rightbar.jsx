@@ -16,7 +16,7 @@ const Rightbar = () => {
       
         <Box sx={{mt:6}}>
           <Typography>  page yet to be developed </Typography>
-          <Typography variant='h6'> contact : developers.samsquare.in </Typography>
+          <Typography variant='h6'> contact : developers </Typography>
         </Box>
       </Box>
     </Box>
