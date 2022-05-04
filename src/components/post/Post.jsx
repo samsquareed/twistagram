@@ -10,9 +10,7 @@ const Post = ({image}) => {
     <Card sx={{marginTop : 1, marginBottom : 2}}>
       <CardHeader
         avatar={
-          <Avatar>
-            S
-          </Avatar>
+          <Avatar src='https://avatars.githubusercontent.com/u/101892240?v=4' />
         }
         action={
           <IconButton aria-label="settings">
@@ -20,7 +18,7 @@ const Post = ({image}) => {
           </IconButton>
         }
         title="sammed.sankonatti"
-        subheader="September 9, 2022"
+        subheader="May 4, 2022"
       />
       <CardMedia
         component="img"

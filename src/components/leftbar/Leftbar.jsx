@@ -1,4 +1,4 @@
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
 import React from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
@@ -37,6 +37,12 @@ const Leftbar = () => {
           </ListItemButton>
         </ListItem>
       </List>
+      
+      <Box sx={{mt:6}}>
+      <Typography>  page yet to be developed </Typography>
+      <Typography variant='h6'> contact : developers.samsquare.in </Typography>
+      </Box>
+      
       </Box>
     </Box>
   )
