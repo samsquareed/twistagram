@@ -1,17 +1,9 @@
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import React from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
 
-import {
-  AccountBox,
-  Article,
-  Group,
-  Home,
-  ModeNight,
-  Person,
-  Settings,
-  Storefront,
-} from "@mui/icons-material";
 
 const Leftbar = () => {
   return (
@@ -21,7 +13,7 @@ const Leftbar = () => {
         <ListItem disablePadding>
           <ListItemButton href='#'>
             <ListItemIcon>
-              <Home />
+              <HomeIcon />
             </ListItemIcon>
             <ListItemText> Home</ListItemText>
           </ListItemButton>
@@ -30,45 +22,9 @@ const Leftbar = () => {
         <ListItem disablePadding>
           <ListItemButton href='#'>
             <ListItemIcon>
-              <Person />
+              <PersonIcon />
             </ListItemIcon>
             <ListItemText> Profile</ListItemText>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem disablePadding>
-          <ListItemButton href='#'>
-            <ListItemIcon>
-              <Article />
-            </ListItemIcon>
-            <ListItemText> Pages</ListItemText>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem disablePadding>
-          <ListItemButton href='#'>
-            <ListItemIcon>
-              <AccountBox />
-            </ListItemIcon>
-            <ListItemText> contacts</ListItemText>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem disablePadding>
-          <ListItemButton href='#'>
-            <ListItemIcon>
-              <Storefront />
-            </ListItemIcon>
-            <ListItemText> store</ListItemText>
-          </ListItemButton>
-        </ListItem>
-
-        <ListItem disablePadding>
-          <ListItemButton href='#'>
-            <ListItemIcon>
-              <Settings />
-            </ListItemIcon>
-            <ListItemText> settings</ListItemText>
           </ListItemButton>
         </ListItem>
 
