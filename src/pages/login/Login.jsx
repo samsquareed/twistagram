@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Link as RouteLink} from 'react-router-dom'
+import {Link as RouteLink, useNavigate} from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -30,9 +30,11 @@ function Copyright(props) {
 const Login = () => {
 
   const theme = createTheme();
+  const nevigate = useNavigate()
 
   const handleSubmit = (e)=>{
     e.preventDefault()
+    nevigate("/")
   }
 
   return (
