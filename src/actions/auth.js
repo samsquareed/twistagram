@@ -11,9 +11,10 @@ export const SignIn = (formData, nevigate)=> async (dispatch)=>{
     }
 }
 
-export const SignUp = (form, nevigate)=> async (dispatch)=>{
+export const SignUp = (formData, nevigate)=> async (dispatch)=>{
     try {
-        
+        const {data} = await api.signUp(formData);
+        nevigate("/login")
     } catch (error) {
         console.log(error);
     }

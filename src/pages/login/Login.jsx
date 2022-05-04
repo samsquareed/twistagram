@@ -43,7 +43,6 @@ const Login = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-    console.log(email, password);
     const userLogin = {email, password}
     dispatch(SignIn(userLogin, nevigate))
   }

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,6 +12,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Link as RouteLink, useNavigate} from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { SignUp } from '../../actions/auth';
 
 function Copyright(props) {
   return (
@@ -31,10 +33,19 @@ const Signup = () => {
 
   const theme = createTheme();
   const nevigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-    nevigate("/login")
+    console.log();
+    const userSignup = { firstName, lastName, email, password}
+    dispatch(SignUp(userSignup, nevigate))
   }
 
   return (
@@ -61,6 +72,8 @@ const Signup = () => {
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
+                  value={firstName}
+                  onChange={(e)=> setFirstName(e.target.value)}
                   required
                   fullWidth
                   id="firstName"
@@ -75,6 +88,8 @@ const Signup = () => {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
+                  value={lastName}
+                  onChange={(e)=> setLastName(e.target.value)}
                   autoComplete="family-name"
                 />
               </Grid>
@@ -85,6 +100,8 @@ const Signup = () => {
                   id="email"
                   label="Email Address"
                   name="email"
+                  value={email}
+                  onChange={(e)=> setEmail(e.target.value)}
                   autoComplete="email"
                 />
               </Grid>
@@ -95,6 +112,8 @@ const Signup = () => {
                   name="password"
                   label="Password"
                   type="password"
+                  value={password}
+                  onChange={(e)=> setPassword(e.target.value)}
                   id="password"
                   autoComplete="new-password"
                 />
