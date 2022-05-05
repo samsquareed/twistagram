@@ -41,7 +41,7 @@ const Post = ({post}) => {
         </Typography>
       </CardContent>
 
-      <CardContent sx={{padding:"0",paddingLeft : "0.5rem", paddingRight:"0.5rem", margin:"0"}}>
+      {/* <CardContent sx={{padding:"0",paddingLeft : "0.5rem", paddingRight:"0.5rem", margin:"0"}}>
       <Box display="flex">
       <TextField sx={{ width:"100%"}}
           id="standard-helperText"
@@ -50,14 +50,18 @@ const Post = ({post}) => {
         />
         <Button sx={{fontSize:"0.8rem"}}>comment</Button>
       </Box>
-      </CardContent>
-
-      {/* <CardContent sx={{padding : "0", margin:"0"}}>
-        <TextField sx={{ width:"100%", padding : "0", margin:"0"}} 
-          placeholder='Leave a comment ....'
-          variant="standard"
-        />
       </CardContent> */}
+
+      <CardContent sx={{padding:"0",paddingRight:"0.5rem", margin:"0"}}>
+        <Box display="flex">
+        <TextField sx={{ width:"100%"}}
+            id="standard-helperText"
+            placeholder='Leave a comment ....'
+            variant="standard"
+          />
+          <Button sx={{fontSize:"0.8rem"}}>comment</Button>
+        </Box>
+      </CardContent>
 
       <CardActions disableSpacing sx={{justifyContent : 'space-between', padding : "0"}}>
         <Box>

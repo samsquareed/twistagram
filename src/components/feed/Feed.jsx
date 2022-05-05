@@ -6,6 +6,7 @@ import Post from '../post/Post';
 const Feed = () => {
 
   const posts = useSelector((state)=> state.posts)
+  posts.reverse()
   // console.log(posts);
   return (
     <Box bgcolor="white" flex={3} p={2}>
