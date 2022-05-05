@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material'
+import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, TextField, Typography } from '@mui/material'
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -15,7 +15,7 @@ const Post = ({post}) => {
 
   return (
     <div>
-    <Card sx={{marginTop : 1, marginBottom : 2}}>
+    <Card sx={{marginTop : 1, marginBottom : 2}} elevation={100}>
       <CardHeader
         avatar={
           <Avatar src='https://avatars.githubusercontent.com/u/101892240?v=4' />
@@ -39,7 +39,26 @@ const Post = ({post}) => {
           <b style={{fontSize : "1rem"}}> {user.firstName} </b> {post.caption}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing sx={{justifyContent : 'space-between', padding : "0.1rem"}}>
+
+      <CardContent sx={{padding:"0",paddingLeft : "0.5rem", paddingRight:"0.5rem", margin:"0"}}>
+      <Box display="flex">
+      <TextField sx={{ width:"100%"}}
+          id="standard-helperText"
+          placeholder='Leave a comment ....'
+          variant="standard"
+        />
+        <Button sx={{fontSize:"0.8rem"}}>comment</Button>
+      </Box>
+      </CardContent>
+
+      {/* <CardContent sx={{padding : "0", margin:"0"}}>
+        <TextField sx={{ width:"100%", padding : "0", margin:"0"}} 
+          placeholder='Leave a comment ....'
+          variant="standard"
+        />
+      </CardContent> */}
+
+      <CardActions disableSpacing sx={{justifyContent : 'space-between', padding : "0"}}>
         <Box>
         <IconButton aria-label="likes">
           <FavoriteBorderIcon style={{fill:"red"}}/>
