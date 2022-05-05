@@ -15,7 +15,7 @@ const Post = ({post}) => {
 
   return (
     <div>
-    <Card sx={{marginTop : 1, marginBottom : 2}} elevation={100}>
+    <Card sx={{marginTop : 1, marginBottom : 2, borderRadius:"15px"}} elevation={100}>
       <CardHeader
         avatar={
           <Avatar src='https://avatars.githubusercontent.com/u/101892240?v=4' />
@@ -29,8 +29,9 @@ const Post = ({post}) => {
         subheader= {moment(post.createdAt).fromNow()}
       />
       <CardMedia
+        sx={{borderRadius:"3px"}}
         component="img"
-        height="380"
+        height="450"
         image={post.image}
         alt="image-loading"
       />
