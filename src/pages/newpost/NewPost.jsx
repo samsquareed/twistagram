@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 import { CreatePost } from '../../actions/posts';
 
 const NewPost = () => {
-
+  const user = JSON.parse(localStorage.getItem("user"))
   const theme = createTheme()
   const nevigate = useNavigate()
   const dispatch = useDispatch()
@@ -27,7 +27,7 @@ const NewPost = () => {
   const handleSubmit = async (e)=>{
     e.preventDefault()
     console.log(selectedFile, caption);
-    const post = {caption, selectedFile}
+    const post = {userId : user._id, caption, image : selectedFile}
     dispatch(CreatePost(post, nevigate))
   }
 
