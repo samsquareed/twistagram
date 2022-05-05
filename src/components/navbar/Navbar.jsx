@@ -60,7 +60,9 @@ const Navbar = () => {
           {
             user && 
             <>
+              <Link to="/newpost">
               <AddIcon sx={ { color:"black", transform : "Scale(1.3)"} }  />
+              </Link>
               {/* <Badge badgeContent={9} color="secondary">
                 <ChatBubbleOutlineOutlinedIcon sx={ { color:"black", transform : "Scale(1.07)"} } />
               </Badge> */}
