@@ -10,3 +10,4 @@ export const signUp = (formData) => API.post('/auth/signup', formData);
 
 //post api's
 export const createPost = (newPost) => API.post('/post/createpost', newPost);
+export const getAllPosts = () => API.get('/post/all');
