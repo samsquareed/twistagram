@@ -3,8 +3,9 @@ import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, IconButt
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import moment from 'moment';
 
-const Post = ({image, likes}) => {
+const Post = ({post}) => {
   return (
     <div>
     <Card sx={{marginTop : 1, marginBottom : 2}}>
@@ -18,23 +19,23 @@ const Post = ({image, likes}) => {
           </IconButton>
         }
         title="sammed.sankonatti"
-        subheader="May 4, 2022"
+        subheader= {moment(post.createdAt).fromNow()}
       />
       <CardMedia
         component="img"
         height="380"
-        image={image}
-        alt="Paella dish"
+        image={post.image}
+        alt="image-loading"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          
+          {post.caption}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon style={{fill:"red"}}/>
-          <Typography variant='h6'> {likes} </Typography>
+          <Typography variant='h6'> {`1.2M`} </Typography>
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
