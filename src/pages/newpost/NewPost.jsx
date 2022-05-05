@@ -31,14 +31,6 @@ const NewPost = () => {
     dispatch(CreatePost(post, nevigate))
   }
 
-
-
-
-
-
-
-
-
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
