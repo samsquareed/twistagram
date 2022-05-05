@@ -16,7 +16,7 @@ const Home = () => {
 
 
   return (
-    <Stack direction="row" spacing={2} justifyContent="space-between">
+    <Stack direction="row" justifyContent="space-between">
         <Leftbar />
         <Feed />
         <Rightbar />
