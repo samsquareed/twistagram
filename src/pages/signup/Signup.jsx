@@ -81,6 +81,7 @@ const Signup = () => {
                   id="userName"
                   label="username"
                   autoFocus
+                  variant="standard"
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -94,6 +95,7 @@ const Signup = () => {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  variant="standard"
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -106,6 +108,7 @@ const Signup = () => {
                   value={lastName}
                   onChange={(e)=> setLastName(e.target.value)}
                   autoComplete="family-name"
+                  variant="standard"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -118,6 +121,7 @@ const Signup = () => {
                   value={email}
                   onChange={(e)=> setEmail(e.target.value)}
                   autoComplete="email"
+                  variant="standard"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -131,9 +135,11 @@ const Signup = () => {
                   onChange={(e)=> setPassword(e.target.value)}
                   id="password"
                   autoComplete="new-password"
+                  variant="standard"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sx={{display:"flex"}} >
+                <Typography>profile pic : &nbsp; </Typography>
                 <FileBase 
                    type="file"
                    multiple={false}

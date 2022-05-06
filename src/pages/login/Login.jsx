@@ -76,6 +76,7 @@ const Login = () => {
               value={email}
               onChange={(e)=> setEmail(e.target.value)}
               autoComplete="email"
+              variant='standard'
               autoFocus
             />
             <TextField
@@ -88,12 +89,12 @@ const Login = () => {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
+              variant='standard'
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -103,11 +104,11 @@ const Login = () => {
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
+              {/* <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
-              </Grid>
+              </Grid> */}
               <Grid item>
                 <RouteLink to="/signup">
                 <Link variant="body2">
@@ -118,7 +119,7 @@ const Login = () => {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
   )

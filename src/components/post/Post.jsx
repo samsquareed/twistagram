@@ -79,17 +79,17 @@ const Post = ({post}) => {
         <Box>
         <IconButton aria-label="likes">
           <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(1.1)"}} />
-          <Typography variant='h6' color="black" fontSize="1.1rem" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
+          <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
         </IconButton>
         <IconButton aria-label='comments'>
           <ChatBubbleOutlineIcon sx={{fill : "blue"}} />
-          <Typography variant='h6' color="black" fontSize="1.1rem" marginLeft="0.3rem" > {post.likes.length} comments </Typography>
+          <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {0} comments </Typography>
         </IconButton>
         </Box>
         <Box>
         <IconButton aria-label="share">
           <ShareIcon sx={{fill : "green"}} />
-          <Typography variant='h6' color="black" fontSize="1.1rem" marginLeft="0.3rem" > {post.likes.length} shares </Typography>
+          <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {0} shares </Typography>
         </IconButton>
         </Box>
       </CardActions>
