@@ -56,9 +56,6 @@ const Navbar = () => {
         </Link>
         }
         {user && <Search> <InputBase placeholder="Search Twists" /> </Search>}
-        {!user && <Typography color="black" style={{
-          fontFamily : "cursive"
-        }} > Twistagram </Typography>}
         <Icons>
           {
             user && 
@@ -69,7 +66,7 @@ const Navbar = () => {
               {/* <Badge badgeContent={9} color="secondary">
                 <ChatBubbleOutlineOutlinedIcon sx={ { color:"black", transform : "Scale(1.07)"} } />
               </Badge> */}
-              <Avatar sx={{transform : "scale(0.9)"}} src='https://avatars.githubusercontent.com/u/101892240?v=4' />
+              <Avatar sx={{transform : "scale(0.9)"}} src={user?.profilePicture} />
               <Button sx={{ minHeight: 0, minWidth: 0, padding: 0 }} onClick={handleLogout}>
               <LogoutOutlinedIcon sx={ { color:"black", transform : "Scale(1.1)"}} />
               </Button>

@@ -15,6 +15,7 @@ import {Link as RouteLink, useNavigate} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { SignUp } from '../../actions/auth';
+import FileBase from 'react-file-base64';
 
 function Copyright(props) {
   return (
@@ -39,12 +40,13 @@ const Signup = () => {
   const [password, setPassword] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
-
+  const [userName, setUserName] = useState("")
+  const [profilePicture, setProfilePicture] = useState("")
 
   const handleSubmit = (e)=>{
     e.preventDefault()
     console.log();
-    const userSignup = { firstName, lastName, email, password}
+    const userSignup = { firstName, lastName, email, password, userName, profilePicture}
     dispatch(SignUp(userSignup, nevigate))
   }
 
@@ -68,6 +70,19 @@ const Signup = () => {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  value={userName}
+                  onChange={(e)=> setUserName(e.target.value)}
+                  required
+                  fullWidth
+                  id="userName"
+                  label="username"
+                  autoFocus
+                />
+              </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
@@ -118,6 +133,14 @@ const Signup = () => {
                   autoComplete="new-password"
                 />
               </Grid>
+              <Grid item xs={12}>
+                <FileBase 
+                   type="file"
+                   multiple={false}
+                   value={profilePicture}
+                   onDone={({ base64 }) => setProfilePicture(base64)}
+                />
+              </Grid>
             </Grid>
             <Button
               type="submit"
@@ -138,7 +161,7 @@ const Signup = () => {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
   )

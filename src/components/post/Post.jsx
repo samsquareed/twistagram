@@ -18,7 +18,7 @@ const Post = ({post}) => {
     <Card sx={{marginTop : 1, marginBottom : 2, borderRadius:"15px"}} elevation={100}>
       <CardHeader
         avatar={
-          <Avatar src='https://avatars.githubusercontent.com/u/101892240?v=4' />
+          <Avatar src={post.postersPic} />
         }
         action={
           <IconButton aria-label="settings">
@@ -37,7 +37,7 @@ const Post = ({post}) => {
       />
       <CardContent sx={{paddingTop :"1", paddingLeft : "0.4rem"}}>
         <Typography variant="body2" color="black">
-          <b style={{fontSize : "1rem"}}> {post.name} </b> {post.caption}
+          <b style={{fontSize : "0.9rem"}}> {post.name} </b> {post.caption}
         </Typography>
       </CardContent>
 
