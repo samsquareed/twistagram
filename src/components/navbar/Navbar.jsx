@@ -42,7 +42,7 @@ const Navbar = () => {
   }
 
   return (
-    <AppBar position="sticky" sx={{bgcolor : "white"}} elevation={1}>
+    <AppBar position="sticky" sx={{bgcolor : "white"}} elevation={0}>
       <StyledToolbar>
         <Typography variant='h6' color="black" sx={{display : { xs:"none", sm : "block" }}} > Twistagram </Typography>
         {

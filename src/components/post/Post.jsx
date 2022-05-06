@@ -21,6 +21,7 @@ const Post = ({post}) => {
           <Avatar src={post.postersPic} />
         }
         action={
+          <>
           <IconButton aria-label="settings">
             {
               user._id === post.userId ?
@@ -30,8 +31,11 @@ const Post = ({post}) => {
             follow
             </Button>
             }
-            <MoreVertIcon sx={{color:"black", paddingLeft : "0.3rem"}} />
           </IconButton>
+          <IconButton>
+            <MoreVertIcon sx={{color:"black", paddingLeft : "0.3rem", transform : "scale(1.1)"}} />
+          </IconButton>
+          </>
         }
         title= {<Typography color="black" fontWeight="500" fontSize="0.9rem"> {post.name} </Typography>}
         subheader= {moment(post.createdAt).fromNow()}
