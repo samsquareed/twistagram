@@ -37,7 +37,7 @@ const Post = ({post}) => {
       />
       <CardContent sx={{paddingTop :"1", paddingLeft : "0.4rem"}}>
         <Typography variant="body2" color="black">
-          <b style={{fontSize : "1rem"}}> {user.firstName} </b> {post.caption}
+          <b style={{fontSize : "1rem"}}> {post.name} </b> {post.caption}
         </Typography>
       </CardContent>
 
