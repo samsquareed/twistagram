@@ -15,7 +15,7 @@ const Feed = () => {
       <Post image="https://wallpapercave.com/dwp1x/wp6105847.jpg" likes={119} /> */}
       {
         posts?.map((post)=>(
-          <Post post={post} />
+          <Post key={post._id} post={post} />
         ))
       }
     </Box>

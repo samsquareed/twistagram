@@ -25,7 +25,7 @@ const Post = ({post}) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title= {<Typography color="black" fontWeight="500" fontSize="0.9rem"> {`${user.firstName}.${user.lastName}`} </Typography>}
+        title= {<Typography color="black" fontWeight="500" fontSize="0.9rem"> {post.name} </Typography>}
         subheader= {moment(post.createdAt).fromNow()}
       />
       <CardMedia

@@ -55,7 +55,10 @@ const Navbar = () => {
           <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />
         </Link>
         }
-        <Search> <InputBase placeholder="Search Twists" /> </Search>
+        {user && <Search> <InputBase placeholder="Search Twists" /> </Search>}
+        {!user && <Typography color="black" style={{
+          fontFamily : "cursive"
+        }} > Twistagram </Typography>}
         <Icons>
           {
             user && 
