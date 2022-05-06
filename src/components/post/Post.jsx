@@ -7,7 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import moment from 'moment';
 import { Box } from '@mui/system';
-
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 const Post = ({post}) => {
 
@@ -22,7 +22,15 @@ const Post = ({post}) => {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            {
+              user._id === post.userId ?
+            <DeleteOutlineOutlinedIcon sx={{paddingRight :"0.1rem", color:"black"}} />
+            :
+            <Button variant="outlined" size="small"  color='info'>
+            follow
+            </Button>
+            }
+            <MoreVertIcon sx={{color:"black", paddingLeft : "0.3rem"}} />
           </IconButton>
         }
         title= {<Typography color="black" fontWeight="500" fontSize="0.9rem"> {post.name} </Typography>}
