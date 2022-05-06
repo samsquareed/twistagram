@@ -5,6 +5,7 @@ import Feed from "../../components/feed/Feed"
 import Rightbar from "../../components/rightbar/Rightbar"
 import {GetAllPosts} from "../../actions/posts"
 import { useDispatch } from 'react-redux'
+import BottomBar from '../../components/bottombar/BottomBar'
 
 const Home = () => {
 
@@ -20,6 +21,7 @@ const Home = () => {
         <Leftbar />
         <Feed />
         <Rightbar />
+        <BottomBar />
     </Stack>
   )
 }
