@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-const API =  Axios.create({baseURL : 'http://localhost:8080'});
-// const API = Axios.create({baseURL : 'https://twistagrams.herokuapp.com'});
+// const API =  Axios.create({baseURL : 'http://localhost:8080'});
+const API = Axios.create({baseURL : 'https://twistagrams.herokuapp.com'});
 
 //auth api's
 export const signIn = (formData) => API.post('/auth/signin', formData);
