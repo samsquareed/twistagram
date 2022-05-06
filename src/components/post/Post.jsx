@@ -15,7 +15,7 @@ const Post = ({post}) => {
 
   return (
     <div>
-    <Card sx={{marginTop : 1, marginBottom : 2, borderRadius:"15px"}} elevation={100}>
+    <Card sx={{marginTop : 1, marginBottom : 2, borderRadius:"15px"}} elevation={0}>
       <CardHeader
         avatar={
           <Avatar src={post.postersPic} />
