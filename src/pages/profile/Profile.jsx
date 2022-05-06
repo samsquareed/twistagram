@@ -1,21 +1,20 @@
-import { Avatar, Card, CardActions, CardContent, CardHeader, Container, Grid, IconButton, ImageList, ImageListItem, Paper, Typography } from '@mui/material'
+import { Avatar, Card, CardActions, CardContent, CardHeader, Container, Grid, IconButton, ImageList, ImageListItem, Paper, Stack, Typography } from '@mui/material'
 import React from 'react'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Grid3x3 } from '@mui/icons-material';
 import styled from '@emotion/styled';
+import Leftbar from '../../components/leftbar/Leftbar';
+import Rightbar from '../../components/rightbar/Rightbar';
+import BottomBar from '../../components/bottombar/BottomBar';
+import { Box } from '@mui/system';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#000',
-  textAlign: 'center',
-  color: 'white'
-}));
-
-const Profile = () => {
+const ProfilePage = () =>{
 
   const user = JSON.parse(localStorage.getItem("user"))
 
-  return (
-    <Card elevation={0} sx={{padding:'0.5rem'}}>
+  return(
+    <Box  >
+      <Card elevation={0} sx={{padding:'0.5rem'}}>
       <CardHeader 
         avatar={
           <Container>
@@ -67,6 +66,22 @@ const Profile = () => {
 </ImageList>
 
     </Card>
+    </Box>
+  )
+}
+
+const Profile = () => {
+
+  return (
+
+    <Stack direction="row" justifyContent="space-between">
+        <Leftbar />
+        <ProfilePage />
+        <Rightbar />
+        <BottomBar />
+    </Stack>
+
+    
   )
 }
 
