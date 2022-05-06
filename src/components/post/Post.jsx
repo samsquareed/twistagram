@@ -8,6 +8,7 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import moment from 'moment';
 import { Box } from '@mui/system';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import { Link } from 'react-router-dom';
 
 const Post = ({post}) => {
 
@@ -18,7 +19,9 @@ const Post = ({post}) => {
     <Card sx={{marginTop : 1, marginBottom : 2, borderRadius:"15px"}} elevation={0}>
       <CardHeader
         avatar={
-          <Avatar src={post.postersPic} />
+          <Link to={`/profile/${post.userId}`} >
+            <Avatar src={post.postersPic} />
+          </Link> 
         }
         action={
           <>

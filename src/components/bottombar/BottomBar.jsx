@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link } from 'react-router-dom';
 
 const BottomBar = () => {
   return (
@@ -16,7 +17,11 @@ const BottomBar = () => {
       <BottomNavigationAction sx={{color:"black", transform : "scale(1.2)"}} label="Search" icon={<SearchIcon />} />
       <BottomNavigationAction sx={{color:"black", transform : "scale(1.1)"}} label="Reels" icon={<OndemandVideoIcon />} />
       <BottomNavigationAction sx={{color:"black", transform : "scale(1.2)"}} label="Likes" icon={<FavoriteBorderIcon />} />
-      <BottomNavigationAction sx={{color:"black", transform : "scale(1.2)"}} label="Profile" icon={<AccountCircleIcon />} />
+      {
+        <Link to="/profile" >
+          <BottomNavigationAction sx={{color:"black", transform : "scale(1.2)"}} label="Profile" icon={<AccountCircleIcon />} />
+        </Link>
+      }
     </BottomNavigation>
   </Paper>
   )

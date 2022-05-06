@@ -7,6 +7,8 @@ import {BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-
 import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
 import NewPost from './pages/newpost/NewPost'
+import Profile from './pages/profile/Profile'
+import OthersProfile from './pages/profile/OthersProfile'
 
 const LogicalLoginHome = () =>{
   const nevigate = useNavigate()
@@ -23,6 +25,8 @@ const LogicalLoginHome = () =>{
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/newpost' element={<NewPost />} />
+      <Route exact path='/profile' element={<Profile />} />
+      <Route exact path='/profile/:id' element={<OthersProfile />} />
     </Routes>
   )
 }
