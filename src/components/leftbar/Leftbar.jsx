@@ -7,7 +7,7 @@ import PersonIcon from '@mui/icons-material/Person';
 
 const Leftbar = () => {
   return (
-    <Box bgcolor="whitesmoke" flex={2} p={2} sx={{display:{xs:"none", sm: "block"}}}>
+    <Box bgcolor="white" flex={2} p={2} sx={{display:{xs:"none", sm: "block"}}}>
       <Box position="fixed">
       <List>
         <ListItem disablePadding>
