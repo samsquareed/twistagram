@@ -48,11 +48,11 @@ const Navbar = () => {
         {
           user ?
           (<Link to="/" >
-          <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />
+          <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"orangered"}} />
         </Link>)
         :
         <Link to="/login" >
-          <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />
+          <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"orangered"}} />
         </Link>
         }
         {user && <Search> <InputBase placeholder="Search Twists" /> </Search>}
