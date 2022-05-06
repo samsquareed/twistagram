@@ -53,7 +53,7 @@ const ProfilePage = () =>{
   ))}
 </Grid> */}
     <ImageList sx={{ width: 370}} cols={3} rowHeight={140}>
-    {Array.from(Array(5)).map((item, key) => (
+    {Array.from(Array(15)).map((item, key) => (
     <ImageListItem key={key}>
       <img
         src={`${user.profilePicture}`}
