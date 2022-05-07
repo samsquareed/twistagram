@@ -8,3 +8,5 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
 export const USERSALLPOSTS = 'USERSALLPOSTS'
+export const GETOTHERUSER = 'GETOTHERUSER'
+export const FETCHOTHERSPOSTS = 'FETCHOTHERSPOSTS'

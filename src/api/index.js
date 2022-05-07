@@ -12,3 +12,8 @@ export const signUp = (formData) => API.post('/auth/signup', formData);
 export const createPost = (newPost) => API.post('/post/createpost', newPost);
 export const getAllPosts = () => API.get('/post/all');
 export const getCurrentUsersAllPosts = (id) => API.get(`/post/user/${id}`)
+
+//other user's services
+
+export const getOtherUser = (id) => API.get(`/user/${id}`)
+export const getOtherUserAllPosts = (id) => API.get(`/post/user/${id}`)

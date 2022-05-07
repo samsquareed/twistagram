@@ -18,10 +18,7 @@ const ProfilePage = () =>{
   useEffect(()=>{
     dispatch(userPostsForProfilePage(user?._id))
     setUserposts(posts)
-  },[posts])
-
-
-  console.log(userPosts.length);
+  },[])
 
   return(
     <Box  >
@@ -64,7 +61,7 @@ const ProfilePage = () =>{
   ))}
 </Grid> */}
     <ImageList sx={{ width: 370}} cols={3} rowHeight={140}>
-    {userPosts?.map((post, key) => (
+    {posts?.map((post, key) => (
     <ImageListItem key={key}>
       <img
         // src={`${user.profilePicture}`}
