@@ -1,8 +1,5 @@
 import { Avatar, Card, CardActions, CardContent, CardHeader, Container, Grid, IconButton, ImageList, ImageListItem, Paper, Stack, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Grid3x3 } from '@mui/icons-material';
-import styled from '@emotion/styled';
 import Leftbar from '../../components/leftbar/Leftbar';
 import Rightbar from '../../components/rightbar/Rightbar';
 import BottomBar from '../../components/bottombar/BottomBar';
@@ -36,22 +33,22 @@ const ProfilePage = () =>{
         action={
           <CardActions>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-              <Typography>{9}</Typography>
+              <Typography sx={{color:"black"}} >{9}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Posts </Typography>
             </IconButton>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-            <Typography>{user?.followers.length}</Typography>
+            <Typography sx={{color:"black"}}>{user?.followers.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Followers </Typography>
             </IconButton>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-            <Typography>{user?.followings.length}</Typography>
+            <Typography sx={{color:"black"}}>{user?.followings.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Followings </Typography>
             </IconButton>
           </CardActions>
         }
       />
       <CardContent sx={{paddingTop :"1", paddingLeft : "0.4rem"}}>
-        <Typography variant="p" color="black">
+        <Typography fontSize="0.9rem" variant="p" color="black">
         {`${user.firstName} ${user.lastName}`} 
         </Typography>
       </CardContent>
