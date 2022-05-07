@@ -6,3 +6,5 @@ export const LIKE = 'LIKE';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+
+export const USERSALLPOSTS = 'USERSALLPOSTS'

@@ -1,5 +1,5 @@
 import { Avatar, Card, CardActions, CardContent, CardHeader, Container, Grid, IconButton, ImageList, ImageListItem, Paper, Stack, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Grid3x3 } from '@mui/icons-material';
 import styled from '@emotion/styled';
@@ -7,10 +7,21 @@ import Leftbar from '../../components/leftbar/Leftbar';
 import Rightbar from '../../components/rightbar/Rightbar';
 import BottomBar from '../../components/bottombar/BottomBar';
 import { Box } from '@mui/system';
+import { useDispatch, useSelector } from 'react-redux';
+import { userPostsForProfilePage } from '../../actions/posts';
 
 const ProfilePage = () =>{
 
   const user = JSON.parse(localStorage.getItem("user"))
+  const [userPosts, setUserposts] = useState([])
+  const dispatch = useDispatch()
+
+  const posts = useSelector((state)=> state.posts)
+
+  useEffect(()=>{
+    dispatch(userPostsForProfilePage(user?._id))
+    setUserposts(posts)
+  },[])
 
   return(
     <Box  >
@@ -53,11 +64,11 @@ const ProfilePage = () =>{
   ))}
 </Grid> */}
     <ImageList sx={{ width: 370}} cols={3} rowHeight={140}>
-    {Array.from(Array(15)).map((item, key) => (
+    {posts?.map((post, key) => (
     <ImageListItem key={key}>
       <img
         src={`${user.profilePicture}`}
-        srcSet={`${user.profilePicture}`}
+        srcSet={`${post.image}`}
         alt={user.userName}
         loading="lazy"
       />
