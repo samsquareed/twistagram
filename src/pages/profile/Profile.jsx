@@ -18,7 +18,7 @@ const ProfilePage = () =>{
   useEffect(()=>{
     dispatch(userPostsForProfilePage(user?._id))
     setUserposts(posts)
-  },[userPosts.length, dispatch])
+  },[posts])
 
 
   console.log(userPosts.length);
