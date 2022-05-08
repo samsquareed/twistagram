@@ -12,6 +12,7 @@ export const signUp = (formData) => API.post('/auth/signup', formData);
 export const createPost = (newPost) => API.post('/post/createpost', newPost);
 export const getAllPosts = () => API.get('/post/all');
 export const getCurrentUsersAllPosts = (id) => API.get(`/post/user/${id}`)
+export const deletePostById = (postid) => API.delete(`/post/delete/${postid}`) 
 
 //other user's services
 

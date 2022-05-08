@@ -9,10 +9,19 @@ import moment from 'moment';
 import { Box } from '@mui/system';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deletePost } from '../../actions/posts';
 
 const Post = ({post}) => {
 
   const user = JSON.parse(localStorage.getItem("user"))
+  const dispatch = useDispatch()
+
+
+  const handleDelete = (e,postid) =>{
+    e.preventDefault()
+    dispatch(deletePost(postid))
+  }
 
   return (
     <div>
@@ -25,16 +34,16 @@ const Post = ({post}) => {
         }
         action={
           <>
-          <IconButton aria-label="settings">
             {
               user._id === post.userId ?
-            <DeleteOutlineOutlinedIcon sx={{paddingRight :"0.1rem", color:"black"}} />
-            :
-            <Button variant="outlined" size="small"  color='info'>
-            follow
-            </Button>
+              <IconButton onClick={(e)=>handleDelete(e,post._id)} aria-label="settings">
+                <DeleteOutlineOutlinedIcon sx={{paddingRight :"0.1rem", color:"black"}} />
+              </IconButton>
+              :
+              <Button variant="outlined" size="small"  color='info'>
+              follow
+              </Button>
             }
-          </IconButton>
           <IconButton>
             <MoreVertIcon sx={{color:"black", paddingLeft : "0.3rem", transform : "scale(1.1)"}} />
           </IconButton>
