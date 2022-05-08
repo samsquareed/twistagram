@@ -33,15 +33,15 @@ const ProfilePage = () =>{
         action={
           <CardActions>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-              <Typography sx={{color:"black"}} >{9}</Typography>
+              <Typography sx={{color:"black"}} >{posts?.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Posts </Typography>
             </IconButton>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-            <Typography sx={{color:"black"}}>{user?.followers.length}</Typography>
+            <Typography sx={{color:"black"}}>{user?.followers?.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Followers </Typography>
             </IconButton>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-            <Typography sx={{color:"black"}}>{user?.followings.length}</Typography>
+            <Typography sx={{color:"black"}}>{user?.followings?.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Followings </Typography>
             </IconButton>
           </CardActions>

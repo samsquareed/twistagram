@@ -4,19 +4,22 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import HeartBrokenOutlinedIcon from '@mui/icons-material/HeartBrokenOutlined';
+import ThumbDownOffAltOutlinedIcon from '@mui/icons-material/ThumbDownOffAltOutlined';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import moment from 'moment';
 import { Box } from '@mui/system';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deletePost, LikePost } from '../../actions/posts';
+import { FollowUser, UnFollowUser } from '../../actions/others';
 
 const Post = ({post}) => {
 
   const user = JSON.parse(localStorage.getItem("user"))
   const dispatch = useDispatch()
-
+  const authuser = useSelector((state)=>state?.auth.authData)  // mistake : here i was writing state?.auth only which was wrong
 
   const handleDelete = (e,postid) =>{
     e.preventDefault()
@@ -26,6 +29,18 @@ const Post = ({post}) => {
   const handleLike = (e, postid, userid) =>{
     e.preventDefault()
     dispatch(LikePost(postid,userid))
+  }
+
+  const handleFollow = (e, id, uid) =>{
+    e.preventDefault()
+    const response = dispatch(FollowUser(id,uid))
+    console.log(response);
+  }
+
+  const handleUnFollow = (e, id, uid) =>{
+    e.preventDefault()
+    const response = dispatch(UnFollowUser(id,uid))
+    console.log(response);
   }
 
   return (
@@ -45,9 +60,18 @@ const Post = ({post}) => {
                 <DeleteOutlineOutlinedIcon sx={{paddingRight :"0.1rem", color:"black"}} />
               </IconButton>
               :
-              <Button variant="outlined" size="small"  color='info'>
-              follow
-              </Button>
+              (
+                // authuser?.followings?.includes(post.userId) 
+                user?.followings?.includes(post.userId) 
+                ?
+                <Button onClick={(e)=>handleUnFollow(e,post.userId, user?._id)} variant="outlined" size="small"  color='info'>
+                  unfollow
+                </Button>
+                :
+                <Button onClick={(e)=>handleFollow(e,post.userId, user?._id)} variant="outlined" size="small"  color='info'>
+                  follow
+                </Button>
+              )
             }
           <IconButton>
             <MoreVertIcon sx={{color:"black", paddingLeft : "0.3rem", transform : "scale(1.1)"}} />
@@ -95,9 +119,17 @@ const Post = ({post}) => {
       <CardActions disableSpacing sx={{justifyContent : 'space-between', padding : "0"}}>
         <Box sx={{display:"flex"}}>
         <Box sx={{display:"flex", alignItems:"center"}}>
-        <IconButton onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
+        {
+          post.likes.includes(user._id) 
+          ?
+        <IconButton disabled={post.likes.includes(user._id)} onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
+          <ThumbDownOffAltOutlinedIcon style={{fill:"black"}} sx={{transform : "Scale(1.05)"}} />
+        </IconButton>
+        :
+        <IconButton disabled={post.likes.includes(user._id)} onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
           <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(1.1)"}} />
         </IconButton>
+        }
         <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
         </Box>
         <Box sx={{display:"flex", alignItems:"center"}}>

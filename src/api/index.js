@@ -19,3 +19,8 @@ export const likePost = (postid, userid) => API.patch(`/post/like/${postid}/${us
 
 export const getOtherUser = (id) => API.get(`/user/${id}`)
 export const getOtherUserAllPosts = (id) => API.get(`/post/user/${id}`)
+
+
+//logged in user services :
+export const followUser = (id, currid) => API.patch(`/user/follow/${id}/${currid}`)
+export const unFollowUser = (id, currid) => API.patch(`/user/unfollow/${id}/${currid}`)

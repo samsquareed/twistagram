@@ -18,7 +18,7 @@ const ProfilePage = () =>{
   const userid = useParams().id
 
   const posts = useSelector((state)=> state.othersposts)
-  const otheruserprofile = useSelector((state)=>state.otheuser)
+  const otheruserprofile = useSelector((state)=>state?.otheuser)
 
   useEffect(()=>{
     dispatch(otherUserPostsForProfilePage(userid))
@@ -43,11 +43,11 @@ const ProfilePage = () =>{
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Posts </Typography>
             </IconButton>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-            <Typography sx={{color:"black"}}>{user?.followers.length}</Typography>
+            <Typography sx={{color:"black"}}>{otheruserprofile?.authData?.followers?.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Followers </Typography>
             </IconButton>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-            <Typography sx={{color:"black"}}>{user?.followings.length}</Typography>
+            <Typography sx={{color:"black"}}>{otheruserprofile?.authData?.followings?.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Followings </Typography>
             </IconButton>
           </CardActions>
