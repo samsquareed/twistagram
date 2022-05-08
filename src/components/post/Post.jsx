@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, TextField, Typography } from '@mui/material'
+import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, IconButton, TextField, Typography } from '@mui/material'
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -10,7 +10,7 @@ import { Box } from '@mui/system';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deletePost } from '../../actions/posts';
+import { deletePost, LikePost } from '../../actions/posts';
 
 const Post = ({post}) => {
 
@@ -23,9 +23,14 @@ const Post = ({post}) => {
     dispatch(deletePost(postid))
   }
 
+  const handleLike = (e, postid, userid) =>{
+    e.preventDefault()
+    dispatch(LikePost(postid,userid))
+  }
+
   return (
     <div>
-    <Card sx={{marginTop : 1, marginBottom : 2, borderRadius:"15px"}} elevation={0}>
+    <Card sx={{marginTop : 0, marginBottom :"2.3rem", borderRadius:"15px"}} elevation={0}>
       <CardHeader
         avatar={
           <Link to={`/profile/${post.userId}`} >
@@ -88,21 +93,27 @@ const Post = ({post}) => {
       </CardContent>
 
       <CardActions disableSpacing sx={{justifyContent : 'space-between', padding : "0"}}>
-        <Box>
-        <IconButton aria-label="likes">
+        <Box sx={{display:"flex"}}>
+        <Box sx={{display:"flex", alignItems:"center"}}>
+        <IconButton onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
           <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(1.1)"}} />
-          <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
         </IconButton>
+        <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
+        </Box>
+        <Box sx={{display:"flex", alignItems:"center"}}>
         <IconButton aria-label='comments'>
           <ChatBubbleOutlineIcon sx={{fill : "blue"}} />
-          <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {0} comments </Typography>
         </IconButton>
+        <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {0} comments </Typography>
         </Box>
-        <Box>
+        </Box>
+        <Box sx={{display:"flex" , alignItems:"center"}}>
+        <Box sx={{display:"flex", alignItems:"center"}}>
         <IconButton aria-label="share">
           <ShareIcon sx={{fill : "green"}} />
-          <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {0} shares </Typography>
         </IconButton>
+        </Box>
+        <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {0} shares </Typography>
         </Box>
       </CardActions>
     </Card>

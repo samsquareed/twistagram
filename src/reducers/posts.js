@@ -1,4 +1,4 @@
-import {CREATEPOST, DELETE, FETCH_ALL, USERSALLPOSTS} from "../constants/actionTypes"
+import {CREATEPOST, DELETE, FETCH_ALL, LIKE, USERSALLPOSTS} from "../constants/actionTypes"
 
 //since this reducer is particularly used to deal with posts 
 // hence we will define it as posts itself instead of state= []
@@ -8,11 +8,13 @@ const postReducer = (posts = [], action) => {
         case CREATEPOST:
             return [...posts, action?.payload]
         case FETCH_ALL :
-            return action?.payload
+            return [...action?.payload]
         case USERSALLPOSTS :
-            return action?.payload
+            return [...action?.payload]
         case DELETE :
             return posts.filter((post)=> post._id !== action.payload);
+        case LIKE :
+            return posts.filter((post)=> (post._id === action.payload._id ? action.payload : post));
         default:
             return posts;
     }

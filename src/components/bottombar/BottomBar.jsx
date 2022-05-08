@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const BottomBar = () => {
   return (
-    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, height:"3.3rem" }} elevation={3}>
     <BottomNavigation
         sx={{color:"black"}}
     >

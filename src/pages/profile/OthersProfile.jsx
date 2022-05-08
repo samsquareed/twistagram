@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userPostsForProfilePage } from '../../actions/posts';
 import { useParams } from 'react-router-dom';
 import { GetOtherUser, otherUserPostsForProfilePage } from '../../actions/others';
+import { CircularProgress } from '@mui/material';
 
 const ProfilePage = () =>{
 
@@ -66,7 +67,7 @@ const ProfilePage = () =>{
   ))}
 </Grid> */}
     <ImageList sx={{ width: 370}} cols={3} rowHeight={140}>
-    {posts?.map((post, key) => (
+    { !posts?.length ? <CircularProgress color='info' /> : posts?.map((post, key) => (
     <ImageListItem key={key}>
       <img
         // src={`${user.profilePicture}`}
