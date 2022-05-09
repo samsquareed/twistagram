@@ -9,6 +9,8 @@ import { Box } from '@mui/system';
 import { Link, useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
 
 const StyledToolbar = styled(Toolbar)({
     display : "flex",
@@ -45,8 +47,23 @@ const Navbar = () => {
   return (
     <AppBar position="sticky" sx={{bgcolor : "white"}} elevation={0}>
       <StyledToolbar>
-        {!user && <Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>}
+        {/* {!user && <Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>} */}
+        
+        <Box sx={{display:"flex", alignItems:"center"}}>
         {
+          user ?
+          (<Link to="/" style={{textDecoration:"none"}} >
+          {<Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>}
+        </Link>)
+        :
+        <Link to="/login" style={{textDecoration:"none"}}  >
+          {<Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>}
+        </Link>
+        }
+        <KeyboardArrowDownIcon sx={{color:"black"}} />
+        </Box>
+        
+        {/* {
           user ?
           (<Link to="/" >
           {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
@@ -55,7 +72,7 @@ const Navbar = () => {
         <Link to="/login" >
           {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
         </Link>
-        }
+        } */}
         {/* {user && <Search> <InputBase placeholder="Search Twists" /> </Search>} */}
         <Icons>
           {
