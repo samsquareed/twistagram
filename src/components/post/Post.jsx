@@ -12,7 +12,7 @@ import { Box } from '@mui/system';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, LikePost } from '../../actions/posts';
+import { deletePost, LikePost, UnLikePost } from '../../actions/posts';
 import { FollowUser, UnFollowUser } from '../../actions/others';
 
 const Post = ({post}) => {
@@ -31,16 +31,19 @@ const Post = ({post}) => {
     dispatch(LikePost(postid,userid))
   }
 
+  const handleUnLike = (e,postid,userid) =>{
+    e.preventDefault()
+    dispatch(UnLikePost(postid,userid))
+  }
+
   const handleFollow = (e, id, uid) =>{
     e.preventDefault()
-    const response = dispatch(FollowUser(id,uid))
-    console.log(response);
+    dispatch(FollowUser(id,uid))
   }
 
   const handleUnFollow = (e, id, uid) =>{
     e.preventDefault()
-    const response = dispatch(UnFollowUser(id,uid))
-    console.log(response);
+    dispatch(UnFollowUser(id,uid))
   }
 
   return (
@@ -122,11 +125,11 @@ const Post = ({post}) => {
         {
           post.likes.includes(user._id) 
           ?
-        <IconButton disabled={post.likes.includes(user._id)} onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
+        <IconButton onClick={(e)=> handleUnLike(e,post._id, user?._id)} aria-label="likes">
           <ThumbDownOffAltOutlinedIcon style={{fill:"black"}} sx={{transform : "Scale(1.05)"}} />
         </IconButton>
         :
-        <IconButton disabled={post.likes.includes(user._id)} onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
+        <IconButton onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
           <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(1.1)"}} />
         </IconButton>
         }
