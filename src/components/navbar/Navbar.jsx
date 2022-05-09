@@ -8,6 +8,7 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Box } from '@mui/system';
 import { Link, useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
+import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 
 const StyledToolbar = styled(Toolbar)({
     display : "flex",
@@ -44,24 +45,24 @@ const Navbar = () => {
   return (
     <AppBar position="sticky" sx={{bgcolor : "white"}} elevation={0}>
       <StyledToolbar>
-        <Typography variant='h6' color="black" sx={{display : { xs:"none", sm : "block" }}} > Twistagram </Typography>
+        {!user && <Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>}
         {
           user ?
           (<Link to="/" >
-          <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />
+          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
         </Link>)
         :
         <Link to="/login" >
-          <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />
+          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
         </Link>
         }
-        {user && <Search> <InputBase placeholder="Search Twists" /> </Search>}
+        {/* {user && <Search> <InputBase placeholder="Search Twists" /> </Search>} */}
         <Icons>
           {
             user && 
             <>
               <Link to="/newpost">
-              <AddIcon sx={ { color:"black", transform : "Scale(1.3)"} }  />
+              <AddAPhotoOutlinedIcon sx={ { color:"black", transform : "Scale(1.3)"} }  />
               </Link>
               {/* <Badge badgeContent={9} color="secondary">
                 <ChatBubbleOutlineOutlinedIcon sx={ { color:"black", transform : "Scale(1.07)"} } />

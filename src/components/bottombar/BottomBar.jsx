@@ -9,11 +9,13 @@ import { Link } from 'react-router-dom';
 
 const BottomBar = () => {
   return (
-    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, height:"3.3rem" }} elevation={3}>
+    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, height:"3.3rem" }} elevation={0}>
     <BottomNavigation
         sx={{color:"black"}}
     >
-      <BottomNavigationAction sx={{color:"black", transform : "scale(1.2)"}} label="Homepage" icon={<HomeIcon />} />
+      <Link to="/">
+        <BottomNavigationAction sx={{color:"black", transform : "scale(1.2)"}} label="Homepage" icon={<HomeIcon />} />
+      </Link>
       <BottomNavigationAction sx={{color:"black", transform : "scale(1.2)"}} label="Search" icon={<SearchIcon />} />
       <BottomNavigationAction sx={{color:"black", transform : "scale(1.1)"}} label="Reels" icon={<OndemandVideoIcon />} />
       <BottomNavigationAction sx={{color:"black", transform : "scale(1.2)"}} label="Likes" icon={<FavoriteBorderIcon />} />

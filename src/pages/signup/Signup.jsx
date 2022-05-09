@@ -62,11 +62,11 @@ const Signup = () => {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'blueviolet' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
+          <Typography component="h1" variant="h4" fontFamily= 'Grand Hotel'>
+            Sign Up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -139,7 +139,7 @@ const Signup = () => {
                 />
               </Grid>
               <Grid item xs={12} sx={{display:"flex"}} >
-                <Typography>profile pic : &nbsp; </Typography>
+                <Typography color="blueviolet" fontFamily='Rubik'>profile pic : &nbsp; </Typography>
                 <FileBase 
                    type="file"
                    multiple={false}

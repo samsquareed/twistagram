@@ -15,6 +15,7 @@ import {Link as RouteLink, useNavigate} from 'react-router-dom'
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {SignIn} from "../../actions/auth"
+import LockOpenIcon from '@mui/icons-material/LockOpen';
 
 function Copyright(props) {
   return (
@@ -60,9 +61,9 @@ const Login = () => {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <LockOpenIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4" fontFamily="Grand Hotel">
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
