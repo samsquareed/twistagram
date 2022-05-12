@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { AppBar, Avatar, Badge, Button, InputBase, Toolbar, Typography } from '@mui/material'
+import { AppBar, Avatar, Badge, Button, IconButton, InputBase, Paper, TextField, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 // import CropFreeIcon from '@mui/icons-material/CropFree';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
+import SearchIcon from '@mui/icons-material/Search';
 
 const StyledToolbar = styled(Toolbar)({
     display : "flex",
@@ -19,9 +19,9 @@ const StyledToolbar = styled(Toolbar)({
 })
 
 const Search = styled('div')({
-  backgroundColor:"whitesmoke",
+  // backgroundColor:"whitesmoke",
   padding : "0 10px",
-  borderRadius : "5px",
+  borderRadius : "50px",
   width:"40%"
 })
 
@@ -31,6 +31,25 @@ const Icons = styled(Box)({
   alignItems : "center",
   // justifyContent : "center"
 })
+
+
+const SearchBar = () =>{
+  return(
+    <Paper
+      elevation={0}
+      sx={{ p: '2px 4px', paddingLeft:"20px", display: 'flex', alignItems: 'center', width: 200 }}
+    >
+      <InputBase
+        sx={{ ml: 1, flex: 5 }}
+        placeholder="Search Twistagram "
+        inputProps={{ 'aria-label': 'search Twistagram' }}
+      />
+      {/* <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+        <SearchIcon />
+      </IconButton> */}
+    </Paper>
+  )
+}
 
 
 const Navbar = () => {
@@ -49,19 +68,19 @@ const Navbar = () => {
       <StyledToolbar>
         {/* {!user && <Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>} */}
         
-        {/* <Box sx={{display:"flex", alignItems:"center"}}>
+        <Box sx={{display:"flex", alignItems:"center"}}>
         {
           user ?
           (<Link to="/" style={{textDecoration:"none"}} >
-          {<Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>}
+          {<Typography variant='h4' color="black" sx={{display : { xs:"none", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>}
         </Link>)
         :
         <Link to="/login" style={{textDecoration:"none"}}  >
-          {<Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>}
+          {<Typography variant='h4' color="black" sx={{display : { xs:"none", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>}
         </Link>
         }
-        <KeyboardArrowDownIcon sx={{color:"black"}} />
-        </Box> */}
+        <KeyboardArrowDownIcon sx={{display : { xs:"none", sm : "block" },color:"black"}} />
+        </Box>
         
         {
           user ?
@@ -73,7 +92,7 @@ const Navbar = () => {
           {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
         </Link>
         }
-        {/* {user && <Search> <InputBase placeholder="Search Twists" /> </Search>} */}
+        {user && <SearchBar/> }
         <Icons>
           {
             user && 

@@ -110,7 +110,27 @@ const Post = ({post}) => {
       </Box>
       </CardContent> */}
 
-      <CardContent sx={{padding:"0",paddingRight:"0.5rem", margin:"0"}}>
+      {/* <CardContent sx={{padding:"0",paddingRight:"0.5rem", margin:"0"}}>
+      <Box sx={{ height:"80px" ,overflow:"scroll"}}>
+        <Box sx={{display:"flex", justifyContent:"space-between"}}>
+        <Box sx={{display:"flex"}}>
+        <Typography sx={{fontWeight:"bold"}}>deeksha : </Typography>
+        <Typography>  awesome 100</Typography>
+        </Box>
+        <Box sx={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+          {10}
+        <FavoriteBorderIcon style={{fill:"red", margin:"0 10px"}} />
+        </Box>
+        </Box>
+      <Typography>this is a comment</Typography>
+      <Typography>this is a comment</Typography>
+      <Typography>this is a comment</Typography>
+      <Typography>this is a comment</Typography>
+      <Typography>this is a comment</Typography>
+      <Typography>this is a comment</Typography>
+      <Typography>this is a comment</Typography>
+      <Typography>this is a comment</Typography>
+      </Box>
         <Box display="flex">
         <TextField sx={{ width:"100%"}}
             id="standard-helperText"
@@ -119,7 +139,8 @@ const Post = ({post}) => {
           />
           <Button sx={{fontSize:"0.8rem"}}>comment</Button>
         </Box>
-      </CardContent>
+        
+      </CardContent> */}
 
       <CardActions disableSpacing sx={{justifyContent : 'space-between', padding : "0"}}>
         <Box sx={{display:"flex"}}>
@@ -128,11 +149,11 @@ const Post = ({post}) => {
           post.likes.includes(user._id) 
           ?
         <IconButton onClick={(e)=> handleUnLike(e,post._id, user?._id)} aria-label="likes">
-          <ThumbDownOffAltOutlinedIcon style={{fill:"black"}} sx={{transform : "Scale(1.05)"}} />
+          <FavoriteBorderIcon style={{fill:"black", margin:"0px", padding:"0px"}} sx={{transform : "Scale(1.05)"}} />
         </IconButton>
         :
         <IconButton onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
-          <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(1.1)"}} />
+          <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(1.05)", fill:"red"}} />
         </IconButton>
         }
         <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
