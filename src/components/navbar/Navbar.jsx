@@ -49,7 +49,7 @@ const Navbar = () => {
       <StyledToolbar>
         {/* {!user && <Typography variant='h4' color="black" sx={{display : { xs:"block", sm : "block" }, fontFamily:"Grand Hotel"}} > Twistagram </Typography>} */}
         
-        <Box sx={{display:"flex", alignItems:"center"}}>
+        {/* <Box sx={{display:"flex", alignItems:"center"}}>
         {
           user ?
           (<Link to="/" style={{textDecoration:"none"}} >
@@ -61,9 +61,9 @@ const Navbar = () => {
         </Link>
         }
         <KeyboardArrowDownIcon sx={{color:"black"}} />
-        </Box>
+        </Box> */}
         
-        {/* {
+        {
           user ?
           (<Link to="/" >
           {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
@@ -72,14 +72,14 @@ const Navbar = () => {
         <Link to="/login" >
           {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
         </Link>
-        } */}
+        }
         {/* {user && <Search> <InputBase placeholder="Search Twists" /> </Search>} */}
         <Icons>
           {
             user && 
             <>
               <Link to="/newpost">
-              <AddAPhotoOutlinedIcon sx={ { color:"black", transform : "Scale(1.3)"} }  />
+              <AddIcon sx={ { color:"black", transform : "Scale(1.3)"} }  />
               </Link>
               {/* <Badge badgeContent={9} color="secondary">
                 <ChatBubbleOutlineOutlinedIcon sx={ { color:"black", transform : "Scale(1.07)"} } />

@@ -85,9 +85,11 @@ const Post = ({post}) => {
         subheader= {moment(post.createdAt).fromNow()}
       />
       <CardMedia
-        sx={{borderRadius:"3px"}}
+        sx={{borderRadius:"1px", objectFit:"contain"}}
+        // sx={{borderRadius:"1px", objectFit:"contain"}}
         component="img"
-        height="450"
+        height="100%"
+        width="100%"
         image={post.image}
         alt="image-loading"
       />
