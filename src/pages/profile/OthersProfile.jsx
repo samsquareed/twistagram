@@ -55,7 +55,7 @@ const ProfilePage = () =>{
       />
       <CardContent sx={{paddingTop :"1", paddingLeft : "0.4rem"}}>
         <Typography fontSize="0.9rem" variant="p" color="black">
-        {`${otheruserprofile?.authData?.firstName} ${otheruserprofile?.authData?.lastName} `} 
+        {!posts?.length ? '' : `${otheruserprofile?.authData?.firstName} ${otheruserprofile?.authData?.lastName} `} 
         </Typography>
       </CardContent>
 
