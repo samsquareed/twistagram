@@ -67,7 +67,7 @@ const ProfilePage = () =>{
   ))}
 </Grid> */}
     <ImageList sx={{ width: 370}} cols={3} rowHeight={140}>
-    { !posts?.length ? <CircularProgress color='info' /> : posts?.map((post, key) => (
+    { !posts?.length ? <Box sx={{position:"fixed", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> <CircularProgress  />  </Box> : posts?.map((post, key) => (
     <ImageListItem key={key}>
       <img
         // src={`${user.profilePicture}`}

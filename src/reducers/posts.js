@@ -6,11 +6,11 @@ import {CREATEPOST, DELETE, FETCH_ALL, LIKE, UNLIKE, USERSALLPOSTS} from "../con
 const postReducer = (posts = [], action) => {
     switch (action.type) {
         case CREATEPOST:
-            return [...posts, action?.payload]
+            return [...posts, action?.payload].reverse()
         case FETCH_ALL :
-            return [...action?.payload]
+            return [...action?.payload].reverse()
         case USERSALLPOSTS :
-            return [...action?.payload]
+            return [...action?.payload].reverse()
         case DELETE :
             return posts.filter((post)=> post._id !== action.payload);
         case LIKE :

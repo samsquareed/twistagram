@@ -37,10 +37,10 @@ const SearchBar = () =>{
   return(
     <Paper
       elevation={0}
-      sx={{ p: '2px 4px', paddingLeft:"20px", display: 'flex', alignItems: 'center', width: 200 }}
+      sx={{ p: '2px 2px', paddingLeft:"0px", display: 'flex', alignItems: 'center', width: 150 }}
     >
       <InputBase
-        sx={{ ml: 1, flex: 5 }}
+        sx={{ ml: 1, flex: 4 }}
         placeholder="Search Twistagram "
         inputProps={{ 'aria-label': 'search Twistagram' }}
       />
