@@ -49,7 +49,7 @@ const NewPost = () => {
             New Post
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} mb={2}>
               <Grid item xs={12}>
                 <TextField
                   fullWidth
@@ -59,9 +59,11 @@ const NewPost = () => {
                   value={caption}
                   onChange={(e)=> setCaption(e.target.value)}
                   autoComplete="caption"
+                  variant='standard'
                 />
               </Grid>
             </Grid>
+            
             <Grid item xs={12}>
               <FileBase 
                   type="file"

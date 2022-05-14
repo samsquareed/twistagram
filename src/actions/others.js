@@ -25,7 +25,7 @@ export const otherUserPostsForProfilePage = (id) => async(dispatch) => {
 export const FollowUser = (id) => async(dispatch) =>{
     try {
         const {data} = await api.followUser(id);
-        console.log(data);
+        // console.log(data);
         dispatch({type: FOLLOW, payload : data})
     } catch (error) {
         console.log(error);
@@ -35,7 +35,7 @@ export const FollowUser = (id) => async(dispatch) =>{
 export const UnFollowUser =(id) => async(dispatch) =>{
     try {
         const {data} = await api.unFollowUser(id);
-        console.log(data);
+        // console.log(data);
         dispatch({type: UNFOLLOW, payload : data})
     } catch (error) {
         console.log(error);

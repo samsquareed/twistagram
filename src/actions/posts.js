@@ -61,7 +61,7 @@ export const UnLikePost = (postid) => async(dispatch) =>{
 export const CommentPost = (postid, comment) => async(dispatch)=>{
     try {
         const {data} = await api.commentPost(postid, comment)
-        console.log(data);
+        // console.log(data);
         dispatch({type : COMMENT, payload : data})
     } catch (error) {
         console.log(error);

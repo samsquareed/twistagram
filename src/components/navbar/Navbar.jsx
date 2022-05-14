@@ -6,7 +6,7 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Box } from '@mui/system';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import AddAPhotoOutlinedIcon from '@mui/icons-material/AddAPhotoOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -37,7 +37,7 @@ const SearchBar = () =>{
   return(
     <Paper
       elevation={0}
-      sx={{ p: '2px 2px', paddingLeft:"0px", display: 'flex', alignItems: 'center', width: 150 }}
+      sx={{ p: '2px 2px', paddingLeft:"0px", display: 'flex', alignItems: 'center', width: 150}}
     >
       <InputBase
         sx={{ ml: 1, flex: 4 }}
@@ -55,6 +55,7 @@ const SearchBar = () =>{
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("user"))
   const nevigate = useNavigate()
+  // const location = useLocation()
 
   const handleLogout = (e) =>{
     localStorage.clear()
@@ -85,14 +86,15 @@ const Navbar = () => {
         {
           user ?
           (<Link to="/" >
-          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)", pr:"20px" }} style={{fill:"blueviolet"}} />}
+          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)", pr:"2px" }} style={{fill:"blueviolet"}} />}
         </Link>)
         :
         <Link to="/login" >
-          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)", pr:"20px" }} style={{fill:"blueviolet"}} />}
+          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)", pr:"2px" }} style={{fill:"blueviolet"}} />}
         </Link>
         }
         {user && <SearchBar/> }
+        {/* {user && location.pathname !== '/newpost' && <SearchBar/> } */}
         <Icons>
           {
             user && 
