@@ -58,20 +58,20 @@ const Post = ({post}) => {
         action={
           <>
             {
-              user._id === post.userId ?
+              user?.result?._id === post.userId ?
               <IconButton onClick={(e)=>handleDelete(e,post._id)} aria-label="settings">
                 <DeleteOutlineOutlinedIcon sx={{paddingRight :"0.1rem", color:"black"}} />
               </IconButton>
               :
               (
                 // authuser?.followings?.includes(post.userId) 
-                user?.followings?.includes(post.userId) 
+                user?.result?.followings?.includes(post.userId) 
                 ?
-                <Button onClick={(e)=>handleUnFollow(e,post.userId, user?._id)} variant="outlined" size="small"  color='info'>
+                <Button onClick={(e)=>handleUnFollow(e,post.userId)} variant="outlined" size="small"  color='info'>
                   unfollow
                 </Button>
                 :
-                <Button onClick={(e)=>handleFollow(e,post.userId, user?._id)} variant="outlined" size="small"  color='info'>
+                <Button onClick={(e)=>handleFollow(e,post.userId)} variant="outlined" size="small"  color='info'>
                   follow
                 </Button>
               )
@@ -93,7 +93,7 @@ const Post = ({post}) => {
         image={post.image}
         alt="image-loading"
       />
-      <CardContent sx={{paddingTop :"1", paddingLeft : "0.4rem"}}>
+      <CardContent sx={{paddingTop :"1", paddingLeft : "0.4rem", margin:"0px"}}>
         <Typography variant="body2" color="black">
           <b style={{fontSize : "0.9rem"}}> {post.name} </b> {post.caption}
         </Typography>
@@ -110,49 +110,47 @@ const Post = ({post}) => {
       </Box>
       </CardContent> */}
 
-      {/* <CardContent sx={{padding:"0",paddingRight:"0.5rem", margin:"0"}}>
-      <Box sx={{ height:"80px" ,overflow:"scroll"}}>
+      <CardContent sx={{padding:"0",paddingRight:"0.5rem", margin:"0"}}>
+      <Box sx={{ height:"auto", maxHeight:"4rem" ,overflowY:"scroll"}}>
+        
+
         <Box sx={{display:"flex", justifyContent:"space-between"}}>
-        <Box sx={{display:"flex"}}>
-        <Typography sx={{fontWeight:"bold"}}>deeksha : </Typography>
-        <Typography>  awesome 100</Typography>
+          <Box sx={{display:"flex", ml:"0.35rem"}}>
+            <Typography sx={{fontWeight:"bold", fontSize:"0.75rem"}}>twistauser &nbsp;  &nbsp;  &nbsp; </Typography>
+          <Typography sx={{fontSize:"0.75rem"}}> this is defenitely going to be amazing feature</Typography>
+          </Box>
+          {/* <Box sx={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+            <Typography variant='p' fontSize="0.8rem"> {10}</Typography>
+            <FavoriteBorderIcon style={{fill:"red", margin:"0 10px", fontSize:"1rem"}} />
+          </Box> */}
         </Box>
-        <Box sx={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
-          {10}
-        <FavoriteBorderIcon style={{fill:"red", margin:"0 10px"}} />
-        </Box>
-        </Box>
-      <Typography>this is a comment</Typography>
-      <Typography>this is a comment</Typography>
-      <Typography>this is a comment</Typography>
-      <Typography>this is a comment</Typography>
-      <Typography>this is a comment</Typography>
-      <Typography>this is a comment</Typography>
-      <Typography>this is a comment</Typography>
-      <Typography>this is a comment</Typography>
+
+
+
+      
       </Box>
         <Box display="flex">
-        <TextField sx={{ width:"100%"}}
+        <TextField sx={{ width:"100%", height:"10px"}}
             id="standard-helperText"
-            placeholder=' comment feature not yet available'
+            placeholder='leave a comment'
             variant="standard"
           />
-          <Button sx={{fontSize:"0.8rem"}}>comment</Button>
+          <Button sx={{fontSize:"0.65rem"}}>comment</Button>
         </Box>
         
-      </CardContent> */}
+      </CardContent>
 
       <CardActions disableSpacing sx={{justifyContent : 'space-between', padding : "0"}}>
         <Box sx={{display:"flex"}}>
         <Box sx={{display:"flex", alignItems:"center"}}>
         {
-          post.likes.includes(user._id) 
+          post.likes.includes(user?.result?._id) 
           ?
-        <IconButton onClick={(e)=> handleUnLike(e,post._id, user?._id)} aria-label="likes">
+        <IconButton onClick={(e)=> handleUnLike(e,post._id)} aria-label="likes">
           <FavoriteBorderIcon style={{fill:"black", margin:"0px", padding:"0px"}} sx={{transform : "Scale(1.05)"}} />
         </IconButton>
         :
-        <IconButton onClick={(e)=> handleLike(e,post._id, user?._id)} aria-label="likes">
+        <IconButton onClick={(e)=> handleLike(e,post._id)} aria-label="likes">
           <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(1.05)", fill:"red"}} />
         </IconButton>
         }

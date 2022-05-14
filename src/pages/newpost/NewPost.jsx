@@ -26,7 +26,7 @@ const NewPost = () => {
   
   const handleSubmit = async (e)=>{
     e.preventDefault()
-    const post = {userId : user._id, caption, image : selectedFile, name: user?.userName, postersPic : user?.profilePicture}
+    const post = {userId : user?.result?._id, caption, image : selectedFile, name: user?.result?.userName, postersPic : user?.result?.profilePicture}
     dispatch(CreatePost(post, nevigate))
   }
 

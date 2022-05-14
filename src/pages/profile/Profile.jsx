@@ -16,7 +16,7 @@ const ProfilePage = () =>{
   const posts = useSelector((state)=> state.posts)
 
   useEffect(()=>{
-    dispatch(userPostsForProfilePage(user?._id))
+    dispatch(userPostsForProfilePage(user?.result?._id))
     setUserposts(posts)
   },[])
 
@@ -26,7 +26,7 @@ const ProfilePage = () =>{
       <CardHeader 
         avatar={
           <Container>
-            <Avatar src={user.profilePicture} sx={{transform:"scale(2)"}} />
+            <Avatar src={user?.result?.profilePicture} sx={{transform:"scale(2)"}} />
             {/* <Typography paddingTop="2rem" paddingLeft="0" > {`${user.firstName}`}  </Typography> */}
           </Container>
         }
@@ -37,11 +37,11 @@ const ProfilePage = () =>{
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Posts </Typography>
             </IconButton>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-            <Typography sx={{color:"black"}}>{user?.followers?.length}</Typography>
+            <Typography sx={{color:"black"}}>{user?.result?.followers?.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Followers </Typography>
             </IconButton>
             <IconButton sx={{display:"flex", flexDirection:"column"}} aria-label="likes">
-            <Typography sx={{color:"black"}}>{user?.followings?.length}</Typography>
+            <Typography sx={{color:"black"}}>{user?.result?.followings?.length}</Typography>
               <Typography variant='h6' color="black" fontSize="0.8rem" fontWeight="400" marginLeft="0.3rem" > Followings </Typography>
             </IconButton>
           </CardActions>
@@ -49,7 +49,7 @@ const ProfilePage = () =>{
       />
       <CardContent sx={{paddingTop :"1", paddingLeft : "0.4rem"}}>
         <Typography fontSize="0.9rem" variant="p" color="black">
-        {`${user.firstName} ${user.lastName}`} 
+        {`${user?.result?.firstName} ${user?.result?.lastName}`} 
         </Typography>
       </CardContent>
 
@@ -66,7 +66,7 @@ const ProfilePage = () =>{
       <img
         // src={`${user.profilePicture}`}
         srcSet={`${post.image}`}
-        alt={user.userName}
+        alt={user?.result?.userName}
         loading="lazy"
       />
     </ImageListItem>

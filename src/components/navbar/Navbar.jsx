@@ -85,11 +85,11 @@ const Navbar = () => {
         {
           user ?
           (<Link to="/" >
-          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
+          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)", pr:"20px" }} style={{fill:"blueviolet"}} />}
         </Link>)
         :
         <Link to="/login" >
-          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)" }} style={{fill:"blueviolet"}} />}
+          {user && <InstagramIcon sx={{display : { xs:"block", sm : "none" }, color:"black", transform : "Scale(1.4)", pr:"20px" }} style={{fill:"blueviolet"}} />}
         </Link>
         }
         {user && <SearchBar/> }
@@ -105,7 +105,7 @@ const Navbar = () => {
               </Badge> */}
               {
                 <Link to="/profile" >
-                  <Avatar sx={{transform : "scale(0.9)"}} src={user?.profilePicture} />
+                  <Avatar sx={{transform : "scale(0.9)"}} src={user?.result?.profilePicture} />
                 </Link>
               }
               <Button sx={{ minHeight: 0, minWidth: 0, padding: 0 }} onClick={handleLogout}>
