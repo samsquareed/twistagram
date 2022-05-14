@@ -23,6 +23,7 @@ export const getCurrentUsersAllPosts = (id) => API.get(`/post/user/${id}`)
 export const deletePostById = (postid) => API.delete(`/post/delete/${postid}`) 
 export const likePost = (postid) => API.patch(`/post/like/${postid}`)
 export const unLikePost = (postid) => API.patch(`/post/unlike/${postid}`)
+export const commentPost = (postid, comment) => API.patch(`/post/comment/${postid}`, comment)
 
 //other user's services
 

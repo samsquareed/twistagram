@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, IconButton, TextField, Typography } from '@mui/material'
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -12,7 +12,7 @@ import { Box } from '@mui/system';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, LikePost, UnLikePost } from '../../actions/posts';
+import { CommentPost, deletePost, LikePost, UnLikePost } from '../../actions/posts';
 import { FollowUser, UnFollowUser } from '../../actions/others';
 
 const Post = ({post}) => {
@@ -20,30 +20,41 @@ const Post = ({post}) => {
   const user = JSON.parse(localStorage.getItem("user"))
   const dispatch = useDispatch()
   const authuser = useSelector((state)=>state?.auth.authData)  // mistake : here i was writing state?.auth only which was wrong
+  const [comment, setComment] = useState("")
+
 
   const handleDelete = (e,postid) =>{
     e.preventDefault()
     dispatch(deletePost(postid))
   }
 
-  const handleLike = (e, postid, userid) =>{
+  const handleLike = (e, postid) =>{
     e.preventDefault()
-    dispatch(LikePost(postid,userid))
+    dispatch(LikePost(postid,))
   }
 
-  const handleUnLike = (e,postid,userid) =>{
+  const handleUnLike = (e,postid,) =>{
     e.preventDefault()
-    dispatch(UnLikePost(postid,userid))
+    dispatch(UnLikePost(postid,))
   }
 
-  const handleFollow = (e, id, uid) =>{
+  const handleFollow = (e, id) =>{
     e.preventDefault()
-    dispatch(FollowUser(id,uid))
+    dispatch(FollowUser(id))
   }
 
-  const handleUnFollow = (e, id, uid) =>{
+  const handleUnFollow = (e, id) =>{
     e.preventDefault()
-    dispatch(UnFollowUser(id,uid))
+    dispatch(UnFollowUser(id))
+  }
+
+  const handleComment =(e, postid)=>{
+    e.preventDefault()
+    const commentOnPost = {
+      text : comment
+    }
+    dispatch(CommentPost(postid, commentOnPost))
+    setComment("")
   }
 
   return (
@@ -93,49 +104,41 @@ const Post = ({post}) => {
         image={post.image}
         alt="image-loading"
       />
-      <CardContent sx={{paddingTop :"1", paddingLeft : "0.4rem", margin:"0px"}}>
+      <CardContent sx={{paddingTop :"5px", paddingLeft : "0.1rem"}}>
         <Typography variant="body2" color="black">
           <b style={{fontSize : "0.9rem"}}> {post.name} </b> {post.caption}
         </Typography>
       </CardContent>
 
-      {/* <CardContent sx={{padding:"0",paddingLeft : "0.5rem", paddingRight:"0.5rem", margin:"0"}}>
-      <Box display="flex">
-      <TextField sx={{ width:"100%"}}
-          id="standard-helperText"
-          placeholder='Leave a comment ....'
-          variant="standard"
-        />
-        <Button sx={{fontSize:"0.8rem"}}>comment</Button>
-      </Box>
-      </CardContent> */}
-
       <CardContent sx={{padding:"0",paddingRight:"0.5rem", margin:"0"}}>
       <Box sx={{ height:"auto", maxHeight:"4rem" ,overflowY:"scroll"}}>
-        
 
-        <Box sx={{display:"flex", justifyContent:"space-between"}}>
-          <Box sx={{display:"flex", ml:"0.35rem"}}>
-            <Typography sx={{fontWeight:"bold", fontSize:"0.75rem"}}>twistauser &nbsp;  &nbsp;  &nbsp; </Typography>
-          <Typography sx={{fontSize:"0.75rem"}}> this is defenitely going to be amazing feature</Typography>
-          </Box>
-          {/* <Box sx={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
-            <Typography variant='p' fontSize="0.8rem"> {10}</Typography>
-            <FavoriteBorderIcon style={{fill:"red", margin:"0 10px", fontSize:"1rem"}} />
-          </Box> */}
-        </Box>
-
-
-
-      
+        {
+          post?.comments?.map((comment)=>{
+            return(
+              <Box sx={{display:"flex", justifyContent:"space-between"}}>
+                <Box sx={{display:"flex", ml:"0.15rem"}}>
+                  <Typography sx={{fontWeight:"bold", fontSize:"0.75rem"}}> {comment.posterName} </Typography>
+                  <Typography sx={{fontSize:"0.75rem"}}>  &nbsp; {comment.text} </Typography>
+                </Box>
+              </Box>
+            )
+          })
+        }
+   
       </Box>
+      
         <Box display="flex">
-        <TextField sx={{ width:"100%", height:"10px"}}
+        <TextField sx={{ width:"100%", height:"8px"}}
             id="standard-helperText"
             placeholder='leave a comment'
             variant="standard"
+            value={comment}
+            onChange={(e)=> setComment(e.target.value)}
+            InputProps={{ style: { fontSize: 12 , color:"black", fontWeight:"500"} }}
+            InputLabelProps={{ style: { fontSize: 12, color:"blue" } }}
           />
-          <Button sx={{fontSize:"0.65rem"}}>comment</Button>
+          <Button onClick={(e)=> handleComment(e,post._id)} sx={{fontSize:"0.6rem"}}>comment</Button>
         </Box>
         
       </CardContent>
@@ -160,7 +163,7 @@ const Post = ({post}) => {
         <IconButton aria-label='comments'>
           <ChatBubbleOutlineIcon sx={{fill : "blue"}} />
         </IconButton>
-        <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {0} comments </Typography>
+        <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {post.comments.length} comments </Typography>
         </Box>
         </Box>
         <Box sx={{display:"flex" , alignItems:"center"}}>

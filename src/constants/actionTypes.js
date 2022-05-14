@@ -6,6 +6,7 @@ export const LIKE = 'LIKE';
 export const UNLIKE = 'UNLIKE'
 export const FOLLOW ='FOLLOW'
 export const UNFOLLOW = 'UNFOLLOW'
+export const COMMENT = 'COMMENT'
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';

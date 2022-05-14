@@ -1,5 +1,5 @@
 import * as api from '../api'
-import {CREATEPOST, DELETE, FETCH_ALL, LIKE, UNLIKE, USERSALLPOSTS} from "../constants/actionTypes"
+import {COMMENT, CREATEPOST, DELETE, FETCH_ALL, LIKE, UNLIKE, USERSALLPOSTS} from "../constants/actionTypes"
 
 
 export const CreatePost = (newPost, nevigate) => async(dispatch) =>{
@@ -53,6 +53,16 @@ export const UnLikePost = (postid) => async(dispatch) =>{
     try {
         const {data} = await api.unLikePost(postid)
         dispatch({type : UNLIKE, payload : data})
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const CommentPost = (postid, comment) => async(dispatch)=>{
+    try {
+        const {data} = await api.commentPost(postid, comment)
+        console.log(data);
+        dispatch({type : COMMENT, payload : data})
     } catch (error) {
         console.log(error);
     }
