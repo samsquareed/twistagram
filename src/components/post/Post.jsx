@@ -111,7 +111,7 @@ const Post = ({post}) => {
       </CardContent>
 
       <CardContent sx={{padding:"0",paddingRight:"0.5rem", margin:"0"}}>
-      <Box sx={{ height:"auto", maxHeight:"4rem" ,overflowY:"scroll"}}>
+      <Box sx={{ height:"auto", maxHeight:"4.3rem" ,overflowY:"scroll"}}>
 
         {
           post?.comments?.map((comment)=>{
