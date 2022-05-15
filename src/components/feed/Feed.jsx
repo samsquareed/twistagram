@@ -9,7 +9,7 @@ const Feed = () => {
 
   return (
     !posts.length ? <Box sx={{position:"fixed", top:"50%", left:"50%", transform:"translate(-50%, -50%)"}}> <CircularProgress  />  </Box> :
-    (<Box bgcolor="white" flex={3} p={2} >
+    (<Box bgcolor="white" flex={2} p={1} >
       {/* <Post image="https://wallpapercave.com/wp/wp9130661.jpg"  likes={12} />
       <Post image="https://mui.com/static/images/cards/paella.jpg"  likes={7} />
       <Post image="https://wallpapercave.com/dwp1x/wp6105847.jpg" likes={119} /> */}
