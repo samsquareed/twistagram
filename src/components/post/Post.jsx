@@ -59,7 +59,7 @@ const Post = ({post}) => {
 
   return (
     <div>
-    <Card sx={{marginTop : 0, marginBottom :"2.3rem", borderRadius:"15px"}} elevation={0}>
+    <Card sx={{marginTop : "0px", marginBottom :"2.3rem", borderRadius:"15px"}} elevation={0}>
       <CardHeader
         avatar={
           <Link to={`/profile/${post.userId}`} >
@@ -129,7 +129,7 @@ const Post = ({post}) => {
       </Box>
       
         <Box display="flex">
-        <TextField sx={{ width:"100%", height:"8px"}}
+        <TextField sx={{ width:"100%", height:"8px" ,ml:"0.15rem"}}
             id="standard-helperText"
             placeholder='leave a comment'
             variant="standard"
@@ -143,7 +143,7 @@ const Post = ({post}) => {
         
       </CardContent>
 
-      <CardActions disableSpacing sx={{justifyContent : 'space-between', padding : "0"}}>
+      <CardActions disableSpacing sx={{justifyContent : 'space-between', alignItems:"center", padding : "0"}}>
         <Box sx={{display:"flex"}}>
         <Box sx={{display:"flex", alignItems:"center"}}>
         {
