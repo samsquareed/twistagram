@@ -105,8 +105,8 @@ const Post = ({post}) => {
         alt="image-loading"
       />
       <CardContent sx={{paddingTop :"5px", paddingLeft : "0.1rem"}}>
-        <Typography variant="body2" color="black">
-          <b style={{fontSize : "0.9rem"}}> {post.name} </b> {post.caption}
+        <Typography variant="body2" color="black" style={{fontSize:"0.8rem"}}>
+          <b style={{fontSize : "0.85rem"}}> {post.name} </b> {post.caption}
         </Typography>
       </CardContent>
 
