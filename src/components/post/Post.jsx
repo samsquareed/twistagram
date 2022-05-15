@@ -78,11 +78,11 @@ const Post = ({post}) => {
                 // authuser?.followings?.includes(post.userId) 
                 user?.result?.followings?.includes(post.userId) 
                 ?
-                <Button onClick={(e)=>handleUnFollow(e,post.userId)} variant="outlined" size="small"  color='info'>
+                <Button onClick={(e)=>handleUnFollow(e,post.userId)} variant="outlined" size="small"  color='info' style={{textTransform:"none", fontSize:"0.8rem"}}>
                   unfollow
                 </Button>
                 :
-                <Button onClick={(e)=>handleFollow(e,post.userId)} variant="outlined" size="small"  color='info'>
+                <Button onClick={(e)=>handleFollow(e,post.userId)} variant="outlined"  size="small"  color='primary' style={{textTransform:"none", fontSize:"0.8rem"}}>
                   follow
                 </Button>
               )
@@ -92,8 +92,8 @@ const Post = ({post}) => {
           </IconButton>
           </>
         }
-        title= {<Typography color="black" fontWeight="500" fontSize="0.9rem"> {post.name} </Typography>}
-        subheader= {moment(post.createdAt).fromNow()}
+        title= {<Typography color="black" fontWeight="500" fontSize="0.85rem"> {post.name} </Typography>}
+        subheader=  {<Typography color="gray" fontSize="0.8rem"> {moment(post.createdAt).fromNow()} </Typography>}
       />
       <CardMedia
         sx={{borderRadius:"1px", objectFit:"contain"}}
@@ -104,8 +104,8 @@ const Post = ({post}) => {
         image={post.image}
         alt="image-loading"
       />
-      <CardContent sx={{paddingTop :"5px", paddingLeft : "0.1rem"}}>
-        <Typography variant="body2" color="black">
+      <CardContent sx={{paddingTop :"0.6rem", paddingLeft : "0.1rem"}}>
+        <Typography variant="body2" color="black" style={{fontSize:"0.8rem"}}>
           <b style={{fontSize : "0.9rem"}}> {post.name} </b> {post.caption}
         </Typography>
       </CardContent>
@@ -138,7 +138,7 @@ const Post = ({post}) => {
             InputProps={{ style: { fontSize: 12 , color:"black", fontWeight:"500"} }}
             InputLabelProps={{ style: { fontSize: 12, color:"blue" } }}
           />
-          <Button onClick={(e)=> handleComment(e,post._id)} sx={{fontSize:"0.6rem"}}>comment</Button>
+          <Button onClick={(e)=> handleComment(e,post._id)} sx={{fontSize:"0.65rem"}}>comment</Button>
         </Box>
         
       </CardContent>
@@ -150,29 +150,38 @@ const Post = ({post}) => {
           post.likes.includes(user?.result?._id) 
           ?
         <IconButton onClick={(e)=> handleUnLike(e,post._id)} aria-label="likes">
-          <FavoriteBorderIcon style={{fill:"black", margin:"0px", padding:"0px"}} sx={{transform : "Scale(1.05)"}} />
+          <FavoriteBorderIcon style={{fill:"black"}} sx={{transform : "Scale(0.95)"}} />
         </IconButton>
         :
         <IconButton onClick={(e)=> handleLike(e,post._id)} aria-label="likes">
-          <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(1.05)", fill:"red"}} />
+          <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(0.95)"}} />
         </IconButton>
         }
-        <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
+        <Typography variant='h6' color="black" fontSize="0.85rem" fontWeight="400" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
         </Box>
-        <Box sx={{display:"flex", alignItems:"center"}}>
-        <IconButton aria-label='comments'>
-          <ChatBubbleOutlineIcon sx={{fill : "blue"}} />
-        </IconButton>
-        <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {post.comments.length} comments </Typography>
+        {
+          post.comments.length === 0  ? 
+          <Box sx={{display:"flex", alignItems:"center", ml:"1rem"}} >
+            <IconButton aria-label='comments'>
+              <ChatBubbleOutlineIcon sx={{fill : "blue", transform : "Scale(0.8)"}} />
+            </IconButton>
+            <Typography variant='h6' color="black" fontSize="0.85rem" fontWeight="400" marginLeft="0.3rem" > no comments </Typography>
+          </Box>  
+          : <Box sx={{display:"flex", alignItems:"center"}}>
+          <IconButton aria-label='comments'>
+            <ChatBubbleOutlineIcon sx={{fill : "blue", transform : "Scale(0.8)"}} />
+          </IconButton>
+          <Typography variant='h6' color="black" fontSize="0.85rem" fontWeight="400" marginLeft="0.3rem" > {post.comments.length} {post.comments.length <= 1 ? 'comment' : "comments" }  </Typography>
+          </Box>
+        }
         </Box>
-        </Box>
-        <Box sx={{display:"flex" , alignItems:"center"}}>
+        <Box sx={{display:"flex" , alignItems:"center", pr:"10px"}}>
         <Box sx={{display:"flex", alignItems:"center"}}>
         <IconButton aria-label="share">
-          <ShareIcon sx={{fill : "green"}} />
+          <ShareIcon sx={{fill : "green",  transform : "Scale(0.8)"}} />
         </IconButton>
         </Box>
-        <Typography variant='h6' color="black" fontSize="1rem" fontWeight="400" marginLeft="0.3rem" > {0} shares </Typography>
+        <Typography variant='h6' color="black" fontSize="0.85rem" fontWeight="400" marginLeft="0.3rem" > no shares </Typography>
         </Box>
       </CardActions>
     </Card>
