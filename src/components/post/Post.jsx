@@ -92,7 +92,7 @@ const Post = ({post}) => {
           </IconButton>
           </>
         }
-        title= {<Typography color="black" fontWeight="500" fontSize="0.8rem"> {post.name} </Typography>}
+        title= {<Typography color="black" fontWeight="500" fontSize="0.75rem"> {post.name} </Typography>}
         subheader=  {<Typography color="gray" fontSize="0.75rem"> {moment(post.createdAt).fromNow()} </Typography>}
       />
       <CardMedia
