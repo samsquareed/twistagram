@@ -59,7 +59,7 @@ const Post = ({post}) => {
 
   return (
     <div>
-    <Card sx={{marginTop : 0, marginBottom :"2.3rem", borderRadius:"15px"}} elevation={0}>
+    <Card sx={{marginTop : "0px", marginBottom :"2.3rem", borderRadius:"15px"}} elevation={0}>
       <CardHeader
         avatar={
           <Link to={`/profile/${post.userId}`} >
@@ -78,11 +78,11 @@ const Post = ({post}) => {
                 // authuser?.followings?.includes(post.userId) 
                 user?.result?.followings?.includes(post.userId) 
                 ?
-                <Button onClick={(e)=>handleUnFollow(e,post.userId)} variant="outlined" size="small"  color='info'>
+                <Button onClick={(e)=>handleUnFollow(e,post.userId)} variant="outlined" size="small"  color='info' style={{textTransform:"none", fontSize:"0.75rem"}}>
                   unfollow
                 </Button>
                 :
-                <Button onClick={(e)=>handleFollow(e,post.userId)} variant="outlined" size="small"  color='info'>
+                <Button onClick={(e)=>handleFollow(e,post.userId)} variant="outlined"  size="small"  color='primary' style={{textTransform:"none", fontSize:"0.75rem"}}>
                   follow
                 </Button>
               )
@@ -92,8 +92,8 @@ const Post = ({post}) => {
           </IconButton>
           </>
         }
-        title= {<Typography color="black" fontWeight="500" fontSize="0.9rem"> {post.name} </Typography>}
-        subheader= {moment(post.createdAt).fromNow()}
+        title= {<Typography color="black" fontWeight="500" fontSize="0.8rem"> {post.name} </Typography>}
+        subheader=  {<Typography color="gray" fontSize="0.75rem"> {moment(post.createdAt).fromNow()} </Typography>}
       />
       <CardMedia
         sx={{borderRadius:"1px", objectFit:"contain"}}
@@ -104,9 +104,9 @@ const Post = ({post}) => {
         image={post.image}
         alt="image-loading"
       />
-      <CardContent sx={{paddingTop :"5px", paddingLeft : "0.1rem"}}>
+      <CardContent sx={{paddingTop :"0.6rem", paddingLeft : "0.1rem"}}>
         <Typography variant="body2" color="black" style={{fontSize:"0.8rem"}}>
-          <b style={{fontSize : "0.85rem"}}> {post.name} </b> {post.caption}
+          <b style={{fontSize : "0.8rem"}}> {post.name} </b> {post.caption}
         </Typography>
       </CardContent>
 
@@ -129,7 +129,7 @@ const Post = ({post}) => {
       </Box>
       
         <Box display="flex">
-        <TextField sx={{ width:"100%", height:"8px", ml:"0.1rem"}}
+        <TextField sx={{ width:"100%", height:"8px", ml:"0.15rem"}}
             id="standard-helperText"
             placeholder='leave a comment'
             variant="standard"
