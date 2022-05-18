@@ -40,8 +40,9 @@ const SearchBar = () =>{
       sx={{ p: '2px 2px', paddingLeft:"0px", display: 'flex', alignItems: 'center', width: 150}}
     >
       <InputBase
+      autoFocus
         sx={{ ml: 1, flex: 4 }}
-        placeholder="Search Twistagram "
+        placeholder="Search Twistagram"
         inputProps={{ 'aria-label': 'search Twistagram' }}
       />
       {/* <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">

@@ -73,10 +73,9 @@ const Signup = () => {
             <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="username"
                   value={userName}
                   onChange={(e)=> setUserName(e.target.value)}
-                  required
                   fullWidth
                   id="userName"
                   label="username"
@@ -84,13 +83,12 @@ const Signup = () => {
                   variant="standard"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={6} sm={6}>
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
                   value={firstName}
                   onChange={(e)=> setFirstName(e.target.value)}
-                  required
                   fullWidth
                   id="firstName"
                   label="First Name"
@@ -98,9 +96,8 @@ const Signup = () => {
                   variant="standard"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={6} sm={6}>
                 <TextField
-                  required
                   fullWidth
                   id="lastName"
                   label="Last Name"
@@ -113,7 +110,6 @@ const Signup = () => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  required
                   fullWidth
                   id="email"
                   label="Email Address"
@@ -126,7 +122,6 @@ const Signup = () => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  required
                   fullWidth
                   name="password"
                   label="Password"
