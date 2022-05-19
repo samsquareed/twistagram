@@ -21,21 +21,24 @@ const Post = ({post}) => {
   const dispatch = useDispatch()
   const authuser = useSelector((state)=>state?.auth.authData)  // mistake : here i was writing state?.auth only which was wrong
   const [comment, setComment] = useState("")
-
+  const [likes, setLikes] = useState(post?.likes)
+  // console.log(likes);
 
   const handleDelete = (e,postid) =>{
     e.preventDefault()
     dispatch(deletePost(postid))
   }
 
-  const handleLike = (e, postid) =>{
+  const handleLike = async (e, postid) =>{
     e.preventDefault()
-    dispatch(LikePost(postid,))
+    setLikes([...post.likes, postid])
+    dispatch(LikePost(postid))
   }
 
-  const handleUnLike = (e,postid,) =>{
+  const handleUnLike = async (e,postid) =>{
     e.preventDefault()
-    dispatch(UnLikePost(postid,))
+    setLikes(post.likes.filter((likeId)=> likeId !==user?.result?._id))
+    dispatch(UnLikePost(postid))
   }
 
   const handleFollow = (e, id) =>{
@@ -147,7 +150,7 @@ const Post = ({post}) => {
         <Box sx={{display:"flex"}}>
         <Box sx={{display:"flex", alignItems:"center"}}>
         {
-          post.likes.includes(user?.result?._id) 
+          post?.likes?.includes(user?.result?._id) 
           ?
         <IconButton onClick={(e)=> handleUnLike(e,post._id)} aria-label="likes">
           <FavoriteBorderIcon style={{fill:"black"}} sx={{transform : "Scale(0.95)"}} />
@@ -157,7 +160,7 @@ const Post = ({post}) => {
           <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(0.95)"}} />
         </IconButton>
         }
-        <Typography variant='h6' color="black" fontSize="0.85rem" fontWeight="400" marginLeft="0.3rem" > {post.likes.length} likes </Typography>
+        <Typography variant='h6' color="black" fontSize="0.85rem" fontWeight="400" marginLeft="0.3rem" > {likes.length} likes </Typography>
         </Box>
         {
           post.comments.length === 0  ? 
