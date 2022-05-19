@@ -15,6 +15,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CommentPost, deletePost, LikePost, UnLikePost } from '../../actions/posts';
 import { FollowUser, UnFollowUser } from '../../actions/others';
 
+
+
+
 const Post = ({post}) => {
 
   const user = JSON.parse(localStorage.getItem("user"))
@@ -23,6 +26,12 @@ const Post = ({post}) => {
   const [comment, setComment] = useState("")
   const [likes, setLikes] = useState(post?.likes)
   // console.log(likes);
+
+  const Likes = () =>{
+    return likes.find((like) => like ===user?.result?._id)
+          ? <FavoriteBorderIcon style={{fill:"black"}} sx={{transform : "Scale(0.95)"}} />
+          : <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(0.95)"}} />
+  }
 
   const handleDelete = (e,postid) =>{
     e.preventDefault()
@@ -33,6 +42,17 @@ const Post = ({post}) => {
     e.preventDefault()
     setLikes([...post.likes, postid])
     dispatch(LikePost(postid))
+  }
+
+  const handleLikeUnLike = async (e, postid) =>{
+    e.preventDefault()
+    if(likes?.find((like) => like ===user?.result?._id)){
+      setLikes(post.likes.filter((likeId)=> likeId !==user?.result?._id))
+      dispatch(UnLikePost(postid))
+    } else{
+      setLikes([...post.likes, postid])
+      dispatch(LikePost(postid))
+    }
   }
 
   const handleUnLike = async (e,postid) =>{
@@ -150,14 +170,8 @@ const Post = ({post}) => {
         <Box sx={{display:"flex"}}>
         <Box sx={{display:"flex", alignItems:"center"}}>
         {
-          post?.likes?.includes(user?.result?._id) 
-          ?
-        <IconButton onClick={(e)=> handleUnLike(e,post._id)} aria-label="likes">
-          <FavoriteBorderIcon style={{fill:"black"}} sx={{transform : "Scale(0.95)"}} />
-        </IconButton>
-        :
-        <IconButton onClick={(e)=> handleLike(e,post._id)} aria-label="likes">
-          <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(0.95)"}} />
+        <IconButton onClick={(e)=> handleLikeUnLike(e,post._id)} aria-label="likes">
+          <Likes />
         </IconButton>
         }
         <Typography variant='h6' color="black" fontSize="0.85rem" fontWeight="400" marginLeft="0.3rem" > {likes.length} likes </Typography>
@@ -193,3 +207,18 @@ const Post = ({post}) => {
 }
 
 export default Post
+
+
+
+
+
+
+// post?.likes?.includes(user?.result?._id) 
+//           ?
+//         <IconButton onClick={(e)=> handleUnLike(e,post._id)} aria-label="likes">
+//           <FavoriteBorderIcon style={{fill:"black"}} sx={{transform : "Scale(0.95)"}} />
+//         </IconButton>
+//         :
+//         <IconButton onClick={(e)=> handleLike(e,post._id)} aria-label="likes">
+//           <FavoriteBorderIcon style={{fill:"red"}} sx={{transform : "Scale(0.95)"}} />
+//         </IconButton>
